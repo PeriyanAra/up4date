@@ -1,39 +1,32 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:up4date/app/app_theme_mode/app_theme_mode.dart';
-import 'package:provider/provider.dart';
+import 'package:up4date/presentation/home/theme/index.dart';
 
-class HomeScreen extends StatefulWidget {
+@RoutePage()
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  @override
   Widget build(BuildContext context) {
+    final homeScreenTheme = HomeScreenTheme.of(context);
+
     return Scaffold(
-      body: Column(
+        body: Center(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          TextButton(
-            onPressed: () {
-              context.read<AppThemeMode>().updateThemeMode(ThemeMode.light);
-            },
-            child: const Text('Light'),
+          Icon(
+            Icons.home,
+            color: homeScreenTheme.homeIconColor,
+            size: homeScreenTheme.homeIconSize,
           ),
-          TextButton(
-            onPressed: () {
-              context.read<AppThemeMode>().updateThemeMode(ThemeMode.dark);
-            },
-            child: const Text('Dark'),
-          ),
-          TextButton(
-            onPressed: () {},
-            child: const Text('Go to settings'),
+          Text(
+            'welcome_text'.tr(),
+            style: homeScreenTheme.titleTextStyle,
           ),
         ],
       ),
-    );
+    ));
   }
 }

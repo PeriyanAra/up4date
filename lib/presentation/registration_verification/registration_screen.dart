@@ -2,11 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:up4date/presentation/common/index.dart';
-import 'package:up4date/presentation/registration_verification/theme/index.dart';
 import 'package:up4date/presentation/registration_verification/models/country_info.dart';
+import 'package:up4date/presentation/registration_verification/theme/index.dart';
 import 'package:up4date/presentation/registration_verification/widgets/country_selector.dart';
 import 'package:up4date/presentation/registration_verification/widgets/phone_input.dart';
-import 'package:up4date/presentation/router/auto_router.gr.dart';
 
 @RoutePage()
 class RegistrationScreen extends StatefulWidget {
@@ -120,6 +119,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   }
 
   void _onContinueButtonTap() {
-    context.router.push(AuthRoute());
+    context.router.replaceAll([PageRouteInfo('authenticated')]);
   }
 }
