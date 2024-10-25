@@ -5,23 +5,47 @@ import 'package:up4date/presentation/common/index.dart';
 import 'package:up4date/presentation/registration/models/country_info.dart';
 import 'package:up4date/presentation/registration/widgets/country_selector.dart';
 import 'package:up4date/presentation/registration/widgets/phone_input.dart';
+import 'package:up4date/presentation/router/auto_router.gr.dart';
 
 @RoutePage()
-class RegistrationScreen extends StatelessWidget {
+class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({super.key});
+
+  @override
+  State<RegistrationScreen> createState() => _RegistrationScreenState();
+}
+
+class _RegistrationScreenState extends State<RegistrationScreen> {
+  late final TextEditingController _controller;
+  bool _isContinueButtonEnabled = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final registrationScreenTheme = RegistrationScreenTheme.of(context);
 
-    return Scaffold(
-      appBar: Up4DateAppBar(),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Column(
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        appBar: Up4DateAppBar(
+          onBackButtonTap: () => context.router.popUntil((r) => r.isFirst),
+        ),
+        body: Padding(
+          padding: registrationScreenTheme.screenContentPadding,
+          child: SafeArea(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
@@ -32,42 +56,70 @@ class RegistrationScreen extends StatelessWidget {
                   'registration_subtitle'.tr(),
                   style: registrationScreenTheme.subtitleTextStyle,
                 ),
+                HBox(
+                  height: registrationScreenTheme.phoneNumberSectionTopSpace,
+                ),
+                SizedBox(
+                  height: 46.0,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: CountrySelector(
+                          countryInfo: CountryInfo(
+                            countryCode: 'ru',
+                            phoneCode: '7',
+                            name: 'Russia',
+                          ),
+                          onPressed: () {},
+                        ),
+                      ),
+                      WBox(
+                        width: registrationScreenTheme.phoneInputLeftSpace,
+                      ),
+                      Expanded(
+                        flex: 4,
+                        child: RegistrationPhoneInput(
+                          controller: _controller,
+
+                          onChanged: _onChanged, // prefix: _CountrySelector(
+                          //     // countryCode: 'ru',
+                          //     // onPressed: _showCountrySelector,
+                          //     ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Spacer(),
+                SizedBox(
+                  width: double.infinity,
+                  child: PrimaryButton(
+                    text: 'continue_text'.tr(),
+                    onTap:
+                        _isContinueButtonEnabled ? _onContinueButtonTap : null,
+                  ),
+                ),
+                HBox(
+                  height: registrationScreenTheme.continueButtonBottomSpace,
+                ),
               ],
             ),
-            SizedBox(
-              height: 24.0,
-            ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width,
-              child: Row(
-                children: [
-                  CountrySelector(
-                    countryInfo: CountryInfo(
-                      countryCode: 'ru',
-                      phoneCode: '7',
-                      name: 'Russia',
-                    ),
-                    onPressed: () {},
-                  ),
-
-                  Expanded(
-                    child: RegistrationPhoneInput(
-                      controller: TextEditingController(),
-                      focusNode: FocusNode(),
-                      isAutofocus: false,
-                      // prefix: _CountrySelector(
-                      //     // countryCode: 'ru',
-                      //     // onPressed: _showCountrySelector,
-                      //     ),
-                    ),
-                  )
-                  // PrimaryButton(text: 'continue'.tr(), onTap: () {},)
-                ],
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );
+  }
+
+  void _onChanged(String value) {
+    final isContinueButtonEnabled = value.length >= 15;
+    if (isContinueButtonEnabled != _isContinueButtonEnabled) {
+      setState(() {
+        _isContinueButtonEnabled = isContinueButtonEnabled;
+      });
+    }
+  }
+
+  void _onContinueButtonTap() {
+    context.router.push(AuthRoute());
   }
 }

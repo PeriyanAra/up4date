@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:up4date/presentation/common/theme/registration_screen_theme.dart';
+import 'package:up4date/presentation/registration/theme/registration_screen_theme.dart';
 import 'package:up4date/presentation/registration/models/country_info.dart';
 import 'package:up4date/presentation/registration/widgets/country_flag_image.dart';
 
@@ -7,6 +7,7 @@ class CountrySelector extends StatelessWidget {
   const CountrySelector({
     required this.countryInfo,
     required this.onPressed,
+    super.key,
   });
 
   final CountryInfo countryInfo;
@@ -18,35 +19,23 @@ class CountrySelector extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {},
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Container(
-            height: 48,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              color: registrationScreenTheme.phoneNumberSectionBackgroundColor,
+      child: Container(
+        decoration: registrationScreenTheme.phoneNumberSectionDecoration,
+        padding: registrationScreenTheme.countryPickerPadding,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            CountryFlagImage(
+              country: countryInfo,
+              size: 4,
             ),
-            child: Padding(
-              padding: registrationScreenTheme.countryPickerPadding,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  CountryFlagImage(
-                    country: countryInfo,
-                    size: 4,
-                  ),
-                  const SizedBox(width: 6),
-                  Text(
-                    '+ ${countryInfo.phoneCode}',
-                    style: registrationScreenTheme.phoneNumberSectionTextStyle,
-                  )
-                ],
-              ),
-            ),
-          ),
-          const SizedBox(width: 8)
-        ],
+            const SizedBox(width: 6),
+            Text(
+              '+ ${countryInfo.phoneCode}',
+              style: registrationScreenTheme.phoneNumberSectionTextStyle,
+            )
+          ],
+        ),
       ),
     );
   }

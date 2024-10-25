@@ -7,10 +7,12 @@ class Up4DateAppBar extends StatelessWidget implements PreferredSizeWidget {
     super.key,
     this.actions,
     this.title = '',
+    this.onBackButtonTap,
   });
 
   final String title;
   final List<Widget>? actions;
+  final VoidCallback? onBackButtonTap;
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +21,14 @@ class Up4DateAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: Text(title),
       actions: actions,
-      leading: Padding(
-        padding: up4dateAppBarTheme.leadingPadding,
-        child: SvgPicture.asset(
-          Assets.backButton,
+      leading: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: onBackButtonTap,
+        child: Padding(
+          padding: up4dateAppBarTheme.leadingPadding,
+          child: SvgPicture.asset(
+            Assets.backButton,
+          ),
         ),
       ),
       leadingWidth: up4dateAppBarTheme.leadingWidth,

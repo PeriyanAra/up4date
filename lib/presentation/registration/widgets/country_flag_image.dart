@@ -5,11 +5,10 @@ class CountryFlagImage extends StatelessWidget {
   const CountryFlagImage({
     required this.country,
     required this.size,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final CountryInfo country;
-
   final double size;
 
   @override
