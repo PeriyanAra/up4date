@@ -2,5 +2,7 @@
 
 abstract class  LocaleKeys {
   static const registration_title = 'registration_title';
+  static const registration_subtitle = 'registration_subtitle';
+  static const continue = 'continue';
 
 }

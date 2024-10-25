@@ -15,7 +15,9 @@ class RegistrationScreenTheme extends ThemeExtension<RegistrationScreenTheme> {
         color: Up4DateColorsPalette.gray,
       );
 
-  TextStyle get titleTextStyle => _textTheme.headlineLarge;
+  TextStyle get titleTextStyle => _textTheme.headlineLarge.copyWith(
+        color: Up4DateColorsPalette.white,
+      );
 
   @override
   int get hashCode => Object.hash(
