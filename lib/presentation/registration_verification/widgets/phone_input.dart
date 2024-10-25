@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:up4date/presentation/common/index.dart';
+import 'package:up4date/presentation/registration_verification/theme/index.dart';
 
 class RegistrationPhoneInput extends StatefulWidget {
   const RegistrationPhoneInput({
@@ -70,12 +70,7 @@ class _RegistrationPhoneInputState extends State<RegistrationPhoneInput> {
           ],
           style: registrationScreenTheme.inputPhoneNumberTextStyle,
           decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderSide: BorderSide.none,
-              borderRadius: BorderRadius.all(
-                Radius.circular(12.0),
-              ),
-            ),
+            border: registrationScreenTheme.phoneInputBorder,
             errorText: widget.errorText,
             hintText: '(___) ___-__-__',
             fillColor: registrationScreenTheme.inputFillColor,
