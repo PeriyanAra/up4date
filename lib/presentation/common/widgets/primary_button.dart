@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:up4date/presentation/common/index.dart';
 
 class PrimaryButton extends StatelessWidget {
   final VoidCallback? onTap;
@@ -11,9 +12,15 @@ class PrimaryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final primaryButtonTheme = PrimaryButtonTheme.of(context);
+
     return ElevatedButton(
       onPressed: onTap,
-      child: Text(text),
+      child: Text(
+        text,
+        // style: primaryButtonTheme.textStyle,
+      ),
+      style: primaryButtonTheme.buttonStyle,
     );
   }
 }
