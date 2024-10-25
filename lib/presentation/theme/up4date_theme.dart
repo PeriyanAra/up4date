@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:up4date/presentation/auth/theme/index.dart';
 import 'package:up4date/presentation/common/index.dart';
+import 'package:up4date/presentation/registration_verification/theme/index.dart';
 import 'package:up4date/presentation/theme/index.dart';
 
 class Up4DateTheme {
