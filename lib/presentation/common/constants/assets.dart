@@ -3,6 +3,8 @@ class Assets {
 
   static const backButton = '$icons/back_button.svg';
 
+  static const cursore = '$icons/cursore.svg';
+
   static const images = 'assets/images';
 
   static const appLogo = '$images/app_logo.png';

@@ -1,6 +1,9 @@
 {
     "registration_title": "Укажи свой номер телефона",
     "registration_subtitle": "Мы отправим на зтот номер код подтверждения",
+    "verification_title": "Введи код из смс",
+    "send_code_again": "Отправить код еще раз ",
+    "to_phone_number": "на номер телефона {}",
     "continue_text": "Продолжить",
     "login": "Войти",
     "create_profile": "Создать профиль",

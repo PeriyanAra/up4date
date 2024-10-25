@@ -1,2 +1,2 @@
-export './registration_verification/index.dart';
+export 'registration/index.dart';
 export './di.dart';

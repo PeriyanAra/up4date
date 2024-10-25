@@ -12,7 +12,7 @@ class AuthScreenTheme extends ThemeExtension<AuthScreenTheme> {
   final Up4DateTextTheme _textTheme;
 
   TextStyle get linkedPrivacyPolicyTextStyle => _textTheme.labelSmall.copyWith(
-        color: Up4DateColorsPalette.purple,
+        color: _colorTheme.tertiary,
         fontWeight: FontWeight.w500,
       );
 
@@ -20,11 +20,11 @@ class AuthScreenTheme extends ThemeExtension<AuthScreenTheme> {
   double get bigSpace => 20.0;
 
   TextStyle get privacyPolicyTextStyle => _textTheme.labelSmall.copyWith(
-        color: Up4DateColorsPalette.white,
+        color: _colorTheme.secondary,
       );
 
   TextStyle get havingTroubleLoginTextStyle => _textTheme.bodyMedium.copyWith(
-        color: Up4DateColorsPalette.purple,
+        color: _colorTheme.tertiary,
         fontWeight: FontWeight.w700,
       );
 

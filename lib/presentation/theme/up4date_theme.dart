@@ -12,6 +12,10 @@ class Up4DateTheme {
       colorTheme: colorTheme,
       textTheme: appTextTheme,
     );
+    final verificationScreenTheme = VerificationScreenTheme(
+      colorTheme: colorTheme,
+      textTheme: appTextTheme,
+    );
     final primaryButtonTheme = PrimaryButtonTheme(
       colorTheme: colorTheme,
       textTheme: appTextTheme,
@@ -42,6 +46,7 @@ class Up4DateTheme {
         primaryButtonTheme,
         secondaryButtonTheme,
         authScreenTheme,
+        verificationScreenTheme,
       ],
     );
   }
@@ -54,6 +59,10 @@ class Up4DateTheme {
       colorTheme: colorTheme,
       textTheme: appTextTheme,
     );
+    final verificationScreenTheme = VerificationScreenTheme(
+      colorTheme: colorTheme,
+      textTheme: appTextTheme,
+    );
     final primaryButtonTheme = PrimaryButtonTheme(
       colorTheme: colorTheme,
       textTheme: appTextTheme,
@@ -84,6 +93,7 @@ class Up4DateTheme {
         primaryButtonTheme,
         secondaryButtonTheme,
         authScreenTheme,
+        verificationScreenTheme,
       ],
     );
   }

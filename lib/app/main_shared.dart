@@ -3,6 +3,7 @@ import 'dart:developer' as dev;
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:up4date/app/app_theme_mode/app_theme_mode.dart';
 import 'package:up4date/app/app_theme_mode/app_theme_mode_settings.dart';
 import 'package:up4date/app/restart_widget.dart';
@@ -16,6 +17,10 @@ Future<void> mainShared(
     () async {
       WidgetsFlutterBinding.ensureInitialized();
       await EasyLocalization.ensureInitialized();
+
+      await SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitUp],
+      );
 
       FlutterError.onError = (FlutterErrorDetails errorDetails) {
         Zone.current.handleUncaughtError(

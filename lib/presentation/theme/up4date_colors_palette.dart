@@ -12,4 +12,5 @@ class Up4DateColorsPalette {
   static const Color purple = Color(0xFF8778F4);
 
   static const Color yellowAcidic = Color(0xFFCCFF5A);
+  static const Color red = Color(0xFFC32115);
 }

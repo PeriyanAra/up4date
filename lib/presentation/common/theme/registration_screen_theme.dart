@@ -12,16 +12,16 @@ class RegistrationScreenTheme extends ThemeExtension<RegistrationScreenTheme> {
   final Up4DateTextTheme _textTheme;
 
   TextStyle get subtitleTextStyle => _textTheme.bodyMedium.copyWith(
-        color: Up4DateColorsPalette.gray,
+        color: Up4DateColorsPalette.gray50,
       );
 
   TextStyle get titleTextStyle => _textTheme.headlineLarge.copyWith(
-        color: Up4DateColorsPalette.white,
+        color: _colorTheme.secondary,
       );
 
   TextStyle get phoneNumberSectionTextStyle =>
       _textTheme.headlineSmall.copyWith(
-        color: Up4DateColorsPalette.white,
+        color: _colorTheme.secondary,
       );
 
   EdgeInsets get countryPickerPadding =>
