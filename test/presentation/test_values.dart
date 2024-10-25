@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:up4date/presentation/theme/theme.dart';
+import 'package:up4date/presentation/theme/index.dart';
 
 final whiteColor = Up4DateColor(Colors.white.value);
 

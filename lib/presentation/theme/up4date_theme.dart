@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:up4date/presentation/common/theme_extensions/index.dart';
-import 'package:up4date/presentation/theme/up4date_color.dart';
-import 'package:up4date/presentation/theme/up4date_color_theme.dart';
-import 'package:up4date/presentation/theme/up4date_colors_palette.dart';
+import 'package:up4date/presentation/common/index.dart';
+import 'package:up4date/presentation/theme/index.dart';
 
 class Up4DateTheme {
   static ThemeData light() {

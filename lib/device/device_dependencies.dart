@@ -1,7 +1,6 @@
-import 'package:up4date/core/di/dependencies.dart';
-import 'package:up4date/core/di/di.dart';
-import 'package:up4date/device/device.dart';
-import 'package:up4date/domain/domain.dart';
+import 'package:up4date/core/di/index.dart';
+import 'package:up4date/device/index.dart';
+import 'package:up4date/domain/index.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final class DeviceDependencies extends Dependencies {

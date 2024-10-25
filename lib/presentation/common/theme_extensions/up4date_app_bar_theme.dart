@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:up4date/presentation/theme/up4date_color_theme.dart';
+import 'package:up4date/presentation/theme/index.dart';
 
 class Up4DateAppBarTheme extends ThemeExtension<Up4DateAppBarTheme> {
   const Up4DateAppBarTheme({
@@ -10,6 +10,7 @@ class Up4DateAppBarTheme extends ThemeExtension<Up4DateAppBarTheme> {
 
   double get leadingWidth => 48.0;
   double get appBarHeight => 70.0;
+  Color get backgroundColor => _colorTheme.backgroundPrimary;
   EdgeInsets get leadingPadding => const EdgeInsets.only(left: 16.0);
 
   @override

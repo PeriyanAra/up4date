@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:up4date/presentation/theme/up4date_color.dart';
+import 'package:up4date/presentation/theme/index.dart';
 
 const _halfT = 0.5;
 

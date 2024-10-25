@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:up4date/app/app_theme_mode/app_theme_mode.dart';
 import 'package:up4date/core/di/di_get_it_implementation.dart';
 import 'package:up4date/presentation/router/auto_router.dart';
-import 'package:up4date/presentation/theme/theme.dart';
+import 'package:up4date/presentation/theme/index.dart';
 
 import 'package:provider/provider.dart';
 
