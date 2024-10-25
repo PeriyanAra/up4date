@@ -15,6 +15,9 @@ class SecondaryButtonTheme extends ThemeExtension<SecondaryButtonTheme> {
       _textTheme.bodyLarge.copyWith(color: _colorTheme.primary);
 
   ButtonStyle get buttonStyle => ButtonStyle(
+        padding: WidgetStatePropertyAll(
+          EdgeInsets.symmetric(vertical: 12.0),
+        ),
         side: WidgetStatePropertyAll(
           BorderSide(
             color: _colorTheme.primary,
