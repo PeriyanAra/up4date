@@ -68,8 +68,9 @@ class _RegistrationPhoneInputState extends State<RegistrationPhoneInput> {
             ),
             // _PhoneNumberInputFormatter(countryCode: countryInfo.isoCode),
           ],
-          style: registrationScreenTheme.inputPhoneNumberTextStyle,
+          style: registrationScreenTheme.phoneNumberSectionTextStyle,
           decoration: InputDecoration(
+            contentPadding: registrationScreenTheme.phoneInputContentPadding,
             border: registrationScreenTheme.phoneInputBorder,
             errorText: widget.errorText,
             hintText: '(___) ___-__-__',
