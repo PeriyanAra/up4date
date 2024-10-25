@@ -60,54 +60,37 @@ class Up4DateTheme {
   }
 
   static Up4DateColorTheme _lightColorTheme() {
-    return _baseColorTheme(
+    return Up4DateColorTheme(
       brightness: Brightness.light,
-      foregroundPrimary: Up4DateColor(
-        Up4DateColorsPalette.black.value,
-        pressed: Up4DateColorsPalette.skin60,
+      primary: Up4DateColor(
+        Up4DateColorsPalette.yellowAcidic.value,
       ),
-      foregroundSecondary: Up4DateColor(
-        Up4DateColorsPalette.gray60.value,
-        disabled: Up4DateColorsPalette.black,
-      ),
-      foregroundTertiary: Up4DateColor(
+      secondary: Up4DateColor(
         Up4DateColorsPalette.white.value,
-        disabled: Up4DateColorsPalette.gray10,
+      ),
+      tertiary: Up4DateColor(
+        Up4DateColorsPalette.purple.value,
       ),
       backgroundPrimary: Up4DateColor(
         Up4DateColorsPalette.black.value,
-        pressed: Up4DateColorsPalette.gray10,
-      ),
-      backgroundSecondary: Up4DateColor(
-        Up4DateColorsPalette.gray10.value,
-        pressed: Up4DateColorsPalette.light,
-      ),
-      backgroundTertiary: Up4DateColor(
-        Up4DateColorsPalette.white.value,
       ),
     );
   }
 
   static Up4DateColorTheme _darkColorTheme() {
-    return _baseColorTheme(
+    return Up4DateColorTheme(
       brightness: Brightness.dark,
-      foregroundPrimary: Up4DateColor(
+      primary: Up4DateColor(
+        Up4DateColorsPalette.yellowAcidic.value,
+      ),
+      secondary: Up4DateColor(
         Up4DateColorsPalette.white.value,
       ),
-      foregroundSecondary: Up4DateColor(
-        Up4DateColorsPalette.gray50.value,
-      ),
-      foregroundTertiary: Up4DateColor(
-        Up4DateColorsPalette.dark60.value,
+      tertiary: Up4DateColor(
+        Up4DateColorsPalette.purple.value,
       ),
       backgroundPrimary: Up4DateColor(
         Up4DateColorsPalette.black.value,
-      ),
-      backgroundSecondary: Up4DateColor(
-        Up4DateColorsPalette.dark50.value,
-      ),
-      backgroundTertiary: Up4DateColor(
-        Up4DateColorsPalette.white.value,
       ),
     );
   }
@@ -115,33 +98,4 @@ class Up4DateTheme {
   /////////////////////////////////////////////////////////////////
   /************************* BASE ********************************/
   /////////////////////////////////////////////////////////////////
-
-  static Up4DateColorTheme _baseColorTheme({
-    required Brightness brightness,
-    required Up4DateColor foregroundPrimary,
-    required Up4DateColor foregroundSecondary,
-    required Up4DateColor foregroundTertiary,
-    required Up4DateColor backgroundPrimary,
-    required Up4DateColor backgroundSecondary,
-    required Up4DateColor backgroundTertiary,
-  }) {
-    return Up4DateColorTheme(
-      brightness: brightness,
-      primary: Up4DateColor(
-        Up4DateColorsPalette.red60.value,
-      ),
-      secondary: Up4DateColor(
-        Up4DateColorsPalette.yellow60.value,
-      ),
-      tertiary: Up4DateColor(
-        Up4DateColorsPalette.blue60.value,
-      ),
-      foregroundPrimary: foregroundPrimary,
-      foregroundSecondary: foregroundSecondary,
-      foregroundTertiary: foregroundTertiary,
-      backgroundPrimary: backgroundPrimary,
-      backgroundSecondary: backgroundSecondary,
-      backgroundTertiary: backgroundTertiary,
-    );
-  }
 }

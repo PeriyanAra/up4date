@@ -57,12 +57,12 @@ class Up4DateTextTheme extends ThemeExtension<Up4DateTextTheme> {
   late final _displayLarge = const TextStyle(
     fontSize: 34,
     fontWeight: FontWeight.bold,
-    color: Up4DateColorsPalette.white,
+    color: Up4DateColorsPalette.black,
   );
   late final _displayMedium = const TextStyle(
     fontSize: 30,
     fontWeight: FontWeight.w600,
-    color: Up4DateColorsPalette.white,
+    color: Up4DateColorsPalette.black,
   );
   late final _displaySmall = const TextStyle(
     fontSize: 26,
@@ -71,62 +71,62 @@ class Up4DateTextTheme extends ThemeExtension<Up4DateTextTheme> {
   late final _headlineLarge = const TextStyle(
     fontSize: 22,
     fontWeight: FontWeight.bold,
-    color: Up4DateColorsPalette.white,
+    color: Up4DateColorsPalette.black,
   );
   late final _headlineMedium = const TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w500,
-    color: Up4DateColorsPalette.white,
+    color: Up4DateColorsPalette.black,
   );
   late final _headlineSmall = const TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w500,
-    color: Up4DateColorsPalette.white,
+    color: Up4DateColorsPalette.black,
   );
   late final _titleLarge = const TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.bold,
-    color: Up4DateColorsPalette.white,
+    color: Up4DateColorsPalette.black,
   );
   late final _titleMedium = const TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w600,
-    color: Up4DateColorsPalette.white,
+    color: Up4DateColorsPalette.black,
   );
   late final _titleSmall = const TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.w500,
-    color: Up4DateColorsPalette.white,
+    color: Up4DateColorsPalette.black,
   );
   late final _bodyLarge = const TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.normal,
-    color: Up4DateColorsPalette.white,
+    color: Up4DateColorsPalette.black,
   );
   late final _bodyMedium = const TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.normal,
-    color: Up4DateColorsPalette.white,
+    color: Up4DateColorsPalette.black,
   );
   late final _bodySmall = const TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.normal,
-    color: Up4DateColorsPalette.white,
+    color: Up4DateColorsPalette.black,
   );
   late final _labelLarge = const TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w700,
-    color: Up4DateColorsPalette.white,
+    color: Up4DateColorsPalette.black,
   );
   late final _labelMedium = const TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.w600,
-    color: Up4DateColorsPalette.white,
+    color: Up4DateColorsPalette.black,
   );
   late final _labelSmall = const TextStyle(
     fontSize: 10,
     fontWeight: FontWeight.w500,
-    color: Up4DateColorsPalette.white,
+    color: Up4DateColorsPalette.black,
   );
 
   @override

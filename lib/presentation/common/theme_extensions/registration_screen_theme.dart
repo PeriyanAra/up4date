@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:up4date/presentation/common/theme_extensions/up4date_text_theme.dart';
+import 'package:up4date/presentation/theme/up4date_text_theme.dart';
 import 'package:up4date/presentation/theme/up4date_color_theme.dart';
 import 'package:up4date/presentation/theme/up4date_colors_palette.dart';
 
@@ -14,7 +14,7 @@ class RegistrationScreenTheme extends ThemeExtension<RegistrationScreenTheme> {
   final Up4DateTextTheme _textTheme;
 
   TextStyle get subtitleTextStyle => _textTheme.bodyMedium.copyWith(
-        color: Up4DateColorsPalette.gray50,
+        color: Up4DateColorsPalette.gray,
       );
 
   TextStyle get titleTextStyle => _textTheme.headlineLarge;
