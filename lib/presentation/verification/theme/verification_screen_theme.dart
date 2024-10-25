@@ -12,6 +12,8 @@ class VerificationScreenTheme extends ThemeExtension<VerificationScreenTheme> {
   final Up4DateColorTheme _colorTheme;
   final Up4DateTextTheme _textTheme;
 
+  double get continueButtonBottomSpace => 26.0;
+
   TextStyle get subtitleTextStyle => _textTheme.bodyMedium.copyWith(
         color: Up4DateColorsPalette.gray50,
       );

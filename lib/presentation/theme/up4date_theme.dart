@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:up4date/presentation/auth/theme/index.dart';
 import 'package:up4date/presentation/common/index.dart';
 import 'package:up4date/presentation/home/theme/index.dart';
-import 'package:up4date/presentation/registration_verification/theme/index.dart';
+import 'package:up4date/presentation/registration/theme/index.dart';
 import 'package:up4date/presentation/theme/index.dart';
 import 'package:up4date/presentation/verification/theme/index.dart';
 
@@ -35,6 +35,9 @@ class Up4DateTheme {
       colorTheme: colorTheme,
       textTheme: appTextTheme,
     );
+    final overlayLoaderHelperTheme = OverlayLoaderHelperTheme(
+      colorTheme: colorTheme,
+    );
 
     return ThemeData(
       useMaterial3: true,
@@ -55,6 +58,7 @@ class Up4DateTheme {
         authScreenTheme,
         verificationScreenTheme,
         homeScreenTheme,
+        overlayLoaderHelperTheme,
       ],
     );
   }
@@ -77,8 +81,4 @@ class Up4DateTheme {
       ),
     );
   }
-
-  /////////////////////////////////////////////////////////////////
-  /************************* BASE ********************************/
-  /////////////////////////////////////////////////////////////////
 }

@@ -45,6 +45,11 @@ class RegistrationScreenTheme extends ThemeExtension<RegistrationScreenTheme> {
 
   double get phoneNumberSectionTopSpace => 24.0;
 
+  double get countrySelectorInsideSpace => 6.0;
+  
+  double get countrySelectorFlagSize => 4.0;
+
+
   InputBorder get phoneInputBorder => OutlineInputBorder(
         borderSide: BorderSide.none,
         borderRadius: BorderRadius.all(

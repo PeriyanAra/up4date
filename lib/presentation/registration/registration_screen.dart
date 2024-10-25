@@ -2,10 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:up4date/presentation/common/index.dart';
-import 'package:up4date/presentation/registration_verification/models/country_info.dart';
-import 'package:up4date/presentation/registration_verification/theme/index.dart';
-import 'package:up4date/presentation/registration_verification/widgets/country_selector.dart';
-import 'package:up4date/presentation/registration_verification/widgets/phone_input.dart';
+import 'package:up4date/presentation/registration/models/country_info.dart';
+import 'package:up4date/presentation/registration/theme/index.dart';
+import 'package:up4date/presentation/registration/widgets/country_selector.dart';
+import 'package:up4date/presentation/registration/widgets/phone_input.dart';
 import 'package:up4date/presentation/router/auto_router.gr.dart';
 
 @RoutePage()
@@ -19,6 +19,7 @@ class RegistrationScreen extends StatefulWidget {
 class _RegistrationScreenState extends State<RegistrationScreen> {
   late final TextEditingController _controller;
   bool _isContinueButtonEnabled = false;
+  final _phoneCode = '+ 7';
 
   @override
   void initState() {
@@ -71,7 +72,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       CountrySelector(
                         countryInfo: CountryInfo(
                           countryCode: 'ru',
-                          phoneCode: '7',
+                          phoneCode: _phoneCode,
                           name: 'Russia',
                         ),
                         onPressed: () {},
@@ -111,7 +112,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
   void _onChanged(String value) {
     final isContinueButtonEnabled = value.length >= 15;
-    
+
     if (isContinueButtonEnabled != _isContinueButtonEnabled) {
       setState(() {
         _isContinueButtonEnabled = isContinueButtonEnabled;
@@ -120,6 +121,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   }
 
   void _onContinueButtonTap() {
-    context.router.push(VerificationRoute(phoneNumber: _controller.text));
+    FocusScope.of(context).unfocus();
+    context.router.push(
+      VerificationRoute(
+        phoneNumber:
+            '$_phoneCode ${_controller.text.replaceAll(RegExp(r"[()]"), "")}',
+      ),
+    );
   }
 }

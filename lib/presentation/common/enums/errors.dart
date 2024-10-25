@@ -1,3 +1,7 @@
 enum Errors {
-  verificationError
+  verificationError('validation_error');
+
+  final String translationKey;
+
+  const Errors(this.translationKey);
 }

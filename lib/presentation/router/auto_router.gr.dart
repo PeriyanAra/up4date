@@ -12,7 +12,7 @@ import 'package:auto_route/auto_route.dart' as _i5;
 import 'package:flutter/material.dart' as _i6;
 import 'package:up4date/presentation/auth/auth_screen.dart' as _i1;
 import 'package:up4date/presentation/home/home_screen.dart' as _i2;
-import 'package:up4date/presentation/registration_verification/registration_screen.dart'
+import 'package:up4date/presentation/registration/registration_screen.dart'
     as _i3;
 import 'package:up4date/presentation/verification/verification_screen.dart'
     as _i4;

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:up4date/presentation/common/index.dart';
-import 'package:up4date/presentation/registration_verification/theme/registration_screen_theme.dart';
-import 'package:up4date/presentation/registration_verification/models/country_info.dart';
-import 'package:up4date/presentation/registration_verification/widgets/country_flag_image.dart';
+import 'package:up4date/presentation/registration/theme/registration_screen_theme.dart';
+import 'package:up4date/presentation/registration/models/country_info.dart';
+import 'package:up4date/presentation/registration/widgets/country_flag_image.dart';
 
 class CountrySelector extends StatelessWidget {
   const CountrySelector({
@@ -28,11 +28,13 @@ class CountrySelector extends StatelessWidget {
           children: [
             CountryFlagImage(
               country: countryInfo,
-              size: 4,
+              size: registrationScreenTheme.countrySelectorFlagSize,
             ),
-            WBox(width: 6.0),
+            WBox(
+              width: registrationScreenTheme.countrySelectorInsideSpace,
+            ),
             Text(
-              '+ ${countryInfo.phoneCode}',
+              countryInfo.phoneCode,
               style: registrationScreenTheme.phoneNumberSectionTextStyle,
             )
           ],

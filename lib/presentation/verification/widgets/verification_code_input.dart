@@ -35,7 +35,15 @@ class _VerificationCodeInputState extends State<VerificationCodeInput> {
     _codeController = widget.controller ?? TextEditingController();
     _focusNode = FocusNode();
     _codeController.addListener(_handleInputChange);
-    _focusNode.addListener(_handleFocusNode);
+    _focusNode.addListener(() {
+      final verificationBloc = context.read<VerificationBloc>();
+      if (verificationBloc.state is VerificationLoadingState ||
+          verificationBloc.state is VerificationInitialState) {
+        return;
+      }
+      verificationBloc.add(VerificationEvent.reset());
+      setState(() {});
+    });
 
     super.initState();
   }
@@ -43,7 +51,6 @@ class _VerificationCodeInputState extends State<VerificationCodeInput> {
   @override
   void dispose() {
     _codeController.removeListener(_handleInputChange);
-    _focusNode.removeListener(_handleFocusNode);
     _codeController.dispose();
     _focusNode.dispose();
     super.dispose();
@@ -53,11 +60,6 @@ class _VerificationCodeInputState extends State<VerificationCodeInput> {
   void didUpdateWidget(covariant VerificationCodeInput oldWidget) {
     _hasError = widget.error.hasError;
     super.didUpdateWidget(oldWidget);
-  }
-
-  void _handleFocusNode() {
-    context.read<VerificationBloc>().add(VerificationEvent.reset());
-    setState(() {});
   }
 
   void _handleInputChange() {

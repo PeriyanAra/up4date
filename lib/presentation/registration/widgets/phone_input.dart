@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:up4date/presentation/registration_verification/theme/index.dart';
+import 'package:up4date/presentation/registration/theme/index.dart';
 
 class RegistrationPhoneInput extends StatefulWidget {
   const RegistrationPhoneInput({
     required this.controller,
-    // required this.countryInfo,
     this.isAutofocus = false,
     this.focusNode,
     this.errorText,
@@ -16,7 +15,6 @@ class RegistrationPhoneInput extends StatefulWidget {
   });
 
   final TextEditingController controller;
-  // final CountryInfo countryInfo;
   final FocusNode? focusNode;
   final String? errorText;
   final Widget? suffix;
@@ -66,7 +64,7 @@ class _RegistrationPhoneInputState extends State<RegistrationPhoneInput> {
               filter: {"#": RegExp(r'[0-9]')},
               type: MaskAutoCompletionType.lazy,
             ),
-            // _PhoneNumberInputFormatter(countryCode: countryInfo.isoCode),
+          
           ],
           style: registrationScreenTheme.phoneNumberSectionTextStyle,
           decoration: InputDecoration(
