@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 class Up4DateColorsPalette {
   static const Color black = Color(0xFF000000);
+  static const Color black50 = Color(0xFF252525);
   static const Color gray50 = Color(0xFFA2A3A3);
   static const Color gray = Color(0xFF4E4E4E);
 

@@ -19,6 +19,8 @@ class RegistrationScreenTheme extends ThemeExtension<RegistrationScreenTheme> {
         color: Up4DateColorsPalette.white,
       );
 
+  Color get phoneNumberSectionBackgroundColor => Up4DateColorsPalette.black50;
+
   @override
   int get hashCode => Object.hash(
         _colorTheme,

@@ -17,7 +17,7 @@ class CodegenLoader extends AssetLoader{
   static const Map<String,dynamic> ru = {
   "registration_title": "Укажи свой номер телефона",
   "registration_subtitle": "Мы отправим на зтот номер код подтверждения",
-  "continue": "Продолжить"
+  "continue_text": "Продолжить"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": ru};
 }
