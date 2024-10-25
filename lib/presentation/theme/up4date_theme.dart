@@ -35,6 +35,9 @@ class Up4DateTheme {
       colorTheme: colorTheme,
       textTheme: appTextTheme,
     );
+    final overlayLoaderHelperTheme = OverlayLoaderHelperTheme(
+      colorTheme: colorTheme,
+    );
 
     return ThemeData(
       useMaterial3: true,
@@ -55,6 +58,7 @@ class Up4DateTheme {
         authScreenTheme,
         verificationScreenTheme,
         homeScreenTheme,
+        overlayLoaderHelperTheme,
       ],
     );
   }
@@ -77,8 +81,4 @@ class Up4DateTheme {
       ),
     );
   }
-
-  /////////////////////////////////////////////////////////////////
-  /************************* BASE ********************************/
-  /////////////////////////////////////////////////////////////////
 }

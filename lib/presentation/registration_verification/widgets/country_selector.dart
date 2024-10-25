@@ -28,9 +28,11 @@ class CountrySelector extends StatelessWidget {
           children: [
             CountryFlagImage(
               country: countryInfo,
-              size: 4,
+              size: registrationScreenTheme.countrySelectorFlagSize,
             ),
-            WBox(width: 6.0),
+            WBox(
+              width: registrationScreenTheme.countrySelectorInsideSpace,
+            ),
             Text(
               '+ ${countryInfo.phoneCode}',
               style: registrationScreenTheme.phoneNumberSectionTextStyle,
