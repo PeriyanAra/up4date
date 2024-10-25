@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:developer' as dev;
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:up4date/app/app_theme_mode/app_theme_mode.dart';
 import 'package:up4date/app/app_theme_mode/app_theme_mode_settings.dart';
@@ -14,6 +15,7 @@ Future<void> mainShared(
   await runZonedGuarded(
     () async {
       WidgetsFlutterBinding.ensureInitialized();
+      await EasyLocalization.ensureInitialized();
 
       FlutterError.onError = (FlutterErrorDetails errorDetails) {
         Zone.current.handleUncaughtError(
@@ -29,7 +31,15 @@ Future<void> mainShared(
         RestartWidget(
           child: ChangeNotifierProvider.value(
             value: AppThemeMode(di<AppThemeModeSettings>().themeMode),
-            child: appProvider,
+            child: EasyLocalization(
+              supportedLocales: const [
+                Locale('ru'),
+              ],
+              path: 'assets/translations',
+              fallbackLocale: const Locale('ru'),
+              startLocale: Locale('ru'),
+              child: appProvider,
+            ),
           ),
           onBeforeRestart: () async {
             await di.reset();

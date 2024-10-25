@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:up4date/presentation/common/index.dart';
 
@@ -26,11 +27,11 @@ class _RegistrationScreenContent extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Укажи свой номер телефона',
+          'registration_title'.tr(),
           style: registrationScreenTheme.titleTextStyle,
         ),
         Text(
-          'Мы отправим на зтот номер код подтверждения',
+          'registration_subtitle'.tr(),
           style: registrationScreenTheme.subtitleTextStyle,
         ),
       ],

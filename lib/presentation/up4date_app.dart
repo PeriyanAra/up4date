@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:up4date/app/app_theme_mode/app_theme_mode.dart';
 import 'package:up4date/core/di/di_get_it_implementation.dart';
@@ -22,6 +23,9 @@ class _Up4DateAppState extends State<Up4DateApp> {
       darkTheme: Up4DateTheme.dark(),
       themeMode: context.watch<AppThemeMode>().themeMode,
       routerConfig: di<AppRouter>().config(),
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
     );
   }
 }
