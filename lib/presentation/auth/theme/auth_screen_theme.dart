@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:up4date/presentation/theme/index.dart';
 
-class RegistrationScreenTheme extends ThemeExtension<RegistrationScreenTheme> {
-  const RegistrationScreenTheme({
+class AuthScreenTheme extends ThemeExtension<AuthScreenTheme> {
+  const AuthScreenTheme({
     required Up4DateColorTheme colorTheme,
     required Up4DateTextTheme textTheme,
   })  : _colorTheme = colorTheme,
@@ -11,45 +11,50 @@ class RegistrationScreenTheme extends ThemeExtension<RegistrationScreenTheme> {
   final Up4DateColorTheme _colorTheme;
   final Up4DateTextTheme _textTheme;
 
-  TextStyle get subtitleTextStyle => _textTheme.bodyMedium.copyWith(
-        color: Up4DateColorsPalette.gray,
+  TextStyle get linkedHavingTroubleLoginTextStyle => _textTheme.labelSmall.copyWith(
+        color: Up4DateColorsPalette.purple,
       );
 
-  TextStyle get titleTextStyle => _textTheme.headlineLarge;
+  TextStyle get havingTroubleLoginTextStyle => _textTheme.labelSmall.copyWith(
+        color: Up4DateColorsPalette.white,
+      );
+  ButtonStyle get buttonStyle => ButtonStyle(
+        backgroundColor: _colorTheme.primary,
+      );
 
   @override
   int get hashCode => Object.hash(
         _colorTheme,
-        this,
+        _textTheme,
       );
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is RegistrationScreenTheme &&
+      other is AuthScreenTheme &&
           runtimeType == other.runtimeType &&
           _colorTheme == other._colorTheme;
 
   @override
-  ThemeExtension<RegistrationScreenTheme> copyWith({
+  ThemeExtension<AuthScreenTheme> copyWith({
     Up4DateColorTheme? colorTheme,
     Up4DateTextTheme? textTheme,
   }) {
-    return RegistrationScreenTheme(
+    return AuthScreenTheme(
       colorTheme: colorTheme ?? _colorTheme,
       textTheme: textTheme ?? _textTheme,
     );
   }
 
   @override
-  ThemeExtension<RegistrationScreenTheme> lerp(
-    covariant ThemeExtension<RegistrationScreenTheme>? other,
+  ThemeExtension<AuthScreenTheme> lerp(
+    covariant ThemeExtension<AuthScreenTheme>? other,
     double t,
   ) {
     return this;
   }
 
-  static RegistrationScreenTheme of(BuildContext context) {
-    return Theme.of(context).extension<RegistrationScreenTheme>()!;
+  static AuthScreenTheme of(BuildContext context) {
+    return Theme.of(context).extension<AuthScreenTheme>()!;
   }
 }

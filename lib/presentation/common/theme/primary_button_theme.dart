@@ -11,24 +11,18 @@ class PrimaryButtonTheme extends ThemeExtension<PrimaryButtonTheme> {
   final Up4DateColorTheme _colorTheme;
   final Up4DateTextTheme _textTheme;
 
-  // TextStyle get textStyle => _textTheme.bodyLarge;
+  TextStyle adaptiveTextStyle({
+    required bool isEnable,
+  }) =>
+      _textTheme.bodyLarge.copyWith(
+          color: isEnable
+              ? Up4DateColorsPalette.black
+              : Up4DateColorsPalette.gray50);
 
   ButtonStyle get buttonStyle => ButtonStyle(
         backgroundColor: _colorTheme.primary,
-        textStyle: WidgetStateTextStyle.resolveWith(
-          (state) {
-            if (state == WidgetState.disabled) {
-              return _textTheme.bodyLarge.copyWith(
-                color: Up4DateColorsPalette.gray50,
-              );
-            }
-
-            return _textTheme.bodyLarge;
-          },
-        ),
       );
 
-      
   @override
   int get hashCode => Object.hash(
         _colorTheme,

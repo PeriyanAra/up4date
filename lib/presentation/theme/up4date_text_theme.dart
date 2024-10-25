@@ -124,7 +124,7 @@ class Up4DateTextTheme extends ThemeExtension<Up4DateTextTheme> {
   );
   late final _labelSmall = const TextStyle(
     fontSize: 10,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.normal,
     color: Up4DateColorsPalette.black,
   );
 

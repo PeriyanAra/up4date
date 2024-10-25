@@ -18,7 +18,7 @@ class PrimaryButton extends StatelessWidget {
       onPressed: onTap,
       child: Text(
         text,
-        // style: primaryButtonTheme.textStyle,
+        style: primaryButtonTheme.adaptiveTextStyle(isEnable: onTap != null),
       ),
       style: primaryButtonTheme.buttonStyle,
     );
