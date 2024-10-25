@@ -41,7 +41,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         appBar: Up4DateAppBar(
-          onBackButtonTap: () => context.router.popUntil((r) => r.isFirst),
+          onBackButtonTap: () {
+            if (!context.router.canPop()) return;
+
+            context.router.popForced();
+          },
         ),
         body: Padding(
           padding: registrationScreenTheme.screenContentPadding,
@@ -107,6 +111,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
   void _onChanged(String value) {
     final isContinueButtonEnabled = value.length >= 15;
+    
     if (isContinueButtonEnabled != _isContinueButtonEnabled) {
       setState(() {
         _isContinueButtonEnabled = isContinueButtonEnabled;

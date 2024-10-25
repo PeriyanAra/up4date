@@ -28,7 +28,7 @@ class VerificationScreen extends StatelessWidget {
   }
 }
 
-class _VerificationScreenContent extends StatelessWidget {
+class _VerificationScreenContent extends StatefulWidget {
   const _VerificationScreenContent({
     Key? key,
     required this.phoneNumber,
@@ -37,59 +37,102 @@ class _VerificationScreenContent extends StatelessWidget {
   final String phoneNumber;
 
   @override
+  State<_VerificationScreenContent> createState() =>
+      _VerificationScreenContentState();
+}
+
+class _VerificationScreenContentState
+    extends State<_VerificationScreenContent> {
+  bool _isContinueButtonEnabled = false;
+  late final TextEditingController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final verificationScreenTheme = VerificationScreenTheme.of(context);
 
     return Scaffold(
-      appBar: Up4DateAppBar(),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text.rich(
-              TextSpan(
-                children: [
-                  TextSpan(
-                    text: 'verification_title'.tr() + '\n',
-                    style: verificationScreenTheme.titleTextStyle,
-                  ),
-                  TextSpan(
-                    text: 'send_code_again'.tr(),
-                    style: verificationScreenTheme.linkedSubtitleTextStyle,
-                  ),
-                  TextSpan(
-                    text: 'to_phone_number'.tr(args: [phoneNumber]),
-                    style: verificationScreenTheme.subtitleTextStyle,
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 24.0,
-            ),
-            BlocBuilder<VerificationBloc, VerificationState>(
-              builder: (context, state) {
-                final isErrorState = state is VerificationErrorState;
+      appBar: Up4DateAppBar(
+        onBackButtonTap: () {
+          if (!context.router.canPop()) return;
 
-                return VerificationCodeInput(
-                  onCodeSubmitted: (vaue) {},
-                  error: (
-                    hasError: isErrorState,
-                    textError: isErrorState ? state.error.toString() : null,
-                  ),
-                );
-              },
-            ),
-            PrimaryButton(
-              text: 'dafa',
-              onTap: () => context.router.replaceAll(
-                [PageRouteInfo('authenticated')],
+          context.router.popForced();
+        },
+      ),
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text.rich(
+                TextSpan(
+                  children: [
+                    TextSpan(
+                      text: 'verification_title'.tr() + '\n',
+                      style: verificationScreenTheme.titleTextStyle,
+                    ),
+                    TextSpan(
+                      text: 'send_code_again'.tr(),
+                      style: verificationScreenTheme.linkedSubtitleTextStyle,
+                    ),
+                    TextSpan(
+                      text: 'to_phone_number'.tr(args: [widget.phoneNumber]),
+                      style: verificationScreenTheme.subtitleTextStyle,
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+              HBox(height: 24.0),
+              BlocBuilder<VerificationBloc, VerificationState>(
+                builder: (context, state) {
+                  final isErrorState = state is VerificationErrorState;
+
+                  return VerificationCodeInput(
+                    onChange: _onChange,
+                    controller: _controller,
+                    error: (
+                      hasError: isErrorState,
+                      textError: isErrorState ? state.error.toString() : null,
+                    ),
+                  );
+                },
+              ),
+              Spacer(),
+              SizedBox(
+                width: double.infinity,
+                child: PrimaryButton(
+                  text: 'continue_text'.tr(),
+                  onTap: _isContinueButtonEnabled ? _onContinueButtonTap : null,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
+  }
+
+  void _onChange(String value) {
+    final isContinueButtonEnabled = value.length >= 6;
+
+    if (isContinueButtonEnabled != _isContinueButtonEnabled) {
+      setState(() {
+        _isContinueButtonEnabled = isContinueButtonEnabled;
+      });
+    }
+  }
+
+  void _onContinueButtonTap() {
+    context.read<VerificationBloc>().add(
+          VerificationEvent.verifyPhoneNumber(
+            verificationCode: _controller.text,
+          ),
+        );
   }
 }

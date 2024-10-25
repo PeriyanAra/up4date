@@ -9,12 +9,14 @@ import 'package:up4date/presentation/verification/theme/index.dart';
 
 class VerificationCodeInput extends StatefulWidget {
   const VerificationCodeInput({
-    required this.onCodeSubmitted,
     required this.error,
+    required this.onChange,
+    this.controller,
     Key? key,
   }) : super(key: key);
-  final ValueChanged<String> onCodeSubmitted;
   final ({bool hasError, String? textError}) error;
+  final Function(String) onChange;
+  final TextEditingController? controller;
 
   @override
   State<VerificationCodeInput> createState() => _VerificationCodeInputState();
@@ -24,13 +26,14 @@ class _VerificationCodeInputState extends State<VerificationCodeInput> {
   bool _hasError = false;
   static const _codeTextFieldErrorMaxLines = 3;
   static const _codeLength = 6;
-
-  final _codeController = TextEditingController();
   String _previousCode = '';
-  final _focusNode = FocusNode();
+  late final TextEditingController _codeController;
+  late final FocusNode _focusNode;
 
   @override
   void initState() {
+    _codeController = widget.controller ?? TextEditingController();
+    _focusNode = FocusNode();
     _codeController.addListener(_handleInputChange);
     _focusNode.addListener(_handleFocusNode);
 
@@ -40,6 +43,7 @@ class _VerificationCodeInputState extends State<VerificationCodeInput> {
   @override
   void dispose() {
     _codeController.removeListener(_handleInputChange);
+    _focusNode.removeListener(_handleFocusNode);
     _codeController.dispose();
     _focusNode.dispose();
     super.dispose();
@@ -53,7 +57,7 @@ class _VerificationCodeInputState extends State<VerificationCodeInput> {
 
   void _handleFocusNode() {
     context.read<VerificationBloc>().add(VerificationEvent.reset());
-      setState(() {});
+    setState(() {});
   }
 
   void _handleInputChange() {
@@ -81,6 +85,7 @@ class _VerificationCodeInputState extends State<VerificationCodeInput> {
       controller: _codeController,
       keyboardAppearance: Brightness.light,
       autofocus: true,
+      onChanged: widget.onChange,
       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
       forceErrorState: _hasError,
       validator: (_) => widget.error.textError,
@@ -99,7 +104,6 @@ class _VerificationCodeInputState extends State<VerificationCodeInput> {
             )
           : const SizedBox.shrink(),
       hapticFeedbackType: HapticFeedbackType.lightImpact,
-      onCompleted: widget.onCodeSubmitted,
       cursor: Container(
         alignment: Alignment.center,
         child: SvgPicture.asset(
