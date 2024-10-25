@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:up4date/presentation/common/index.dart';
 import 'package:up4date/presentation/registration/models/country_info.dart';
 import 'package:up4date/presentation/registration/widgets/country_selector.dart';
@@ -13,70 +12,61 @@ class RegistrationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: Up4DateAppBar(),
-      body: _RegistrationScreenContent(),
-    );
-  }
-}
-
-class _RegistrationScreenContent extends StatelessWidget {
-  const _RegistrationScreenContent({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
     final registrationScreenTheme = RegistrationScreenTheme.of(context);
 
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'registration_title'.tr(),
-                style: registrationScreenTheme.titleTextStyle,
-              ),
-              Text(
-                'registration_subtitle'.tr(),
-                style: registrationScreenTheme.subtitleTextStyle,
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 24.0,
-          ),
-          SizedBox(
-            width: MediaQuery.of(context).size.width,
-            child: Row(
+    return Scaffold(
+      appBar: Up4DateAppBar(),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CountrySelector(
-                  countryInfo: CountryInfo(
-                    countryCode: 'ru',
-                    phoneCode: '7',
-                    name: 'Russia',
-                  ),
-                  onPressed: () {},
+                Text(
+                  'registration_title'.tr(),
+                  style: registrationScreenTheme.titleTextStyle,
                 ),
-
-                Expanded(
-                  child: PhoneInput(
-                    controller: TextEditingController(),
-                    focusNode: FocusNode(),
-                    isAutofocus: false,
-                    // prefix: _CountrySelector(
-                    //     // countryCode: 'ru',
-                    //     // onPressed: _showCountrySelector,
-                    //     ),
-                  ),
-                )
-                // PrimaryButton(text: 'continue'.tr(), onTap: () {},)
+                Text(
+                  'registration_subtitle'.tr(),
+                  style: registrationScreenTheme.subtitleTextStyle,
+                ),
               ],
             ),
-          ),
-        ],
+            SizedBox(
+              height: 24.0,
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: Row(
+                children: [
+                  CountrySelector(
+                    countryInfo: CountryInfo(
+                      countryCode: 'ru',
+                      phoneCode: '7',
+                      name: 'Russia',
+                    ),
+                    onPressed: () {},
+                  ),
+
+                  Expanded(
+                    child: RegistrationPhoneInput(
+                      controller: TextEditingController(),
+                      focusNode: FocusNode(),
+                      isAutofocus: false,
+                      // prefix: _CountrySelector(
+                      //     // countryCode: 'ru',
+                      //     // onPressed: _showCountrySelector,
+                      //     ),
+                    ),
+                  )
+                  // PrimaryButton(text: 'continue'.tr(), onTap: () {},)
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

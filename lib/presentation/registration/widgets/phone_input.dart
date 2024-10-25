@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:up4date/presentation/common/index.dart';
 
-class PhoneInput extends StatelessWidget {
-  const PhoneInput({
+class RegistrationPhoneInput extends StatefulWidget {
+  const RegistrationPhoneInput({
     required this.controller,
     // required this.countryInfo,
     required this.focusNode,
@@ -20,79 +21,16 @@ class PhoneInput extends StatelessWidget {
   final bool isAutofocus;
 
   @override
-  Widget build(BuildContext context) {
-    const maxPhoneNumberLength = 20;
-
-    return AppTextField(
-      errorText: errorText,
-      autofocus: isAutofocus,
-      controller: controller,
-      focusNode: focusNode,
-      maxLines: 1,
-      keyboardType: TextInputType.number,
-      textInputAction: TextInputAction.done,
-      autofillHints: const [AutofillHints.telephoneNumber],
-      hintText: 'RegistrationScreen_Redesign_PhoneNumber',
-      inputFormatters: [
-        FilteringTextInputFormatter.allow(RegExp('[0-9+]')),
-        LengthLimitingTextInputFormatter(maxPhoneNumberLength),
-        // _PhoneNumberInputFormatter(countryCode: countryInfo.isoCode),
-      ],
-    );
-  }
+  State<RegistrationPhoneInput> createState() => _RegistrationPhoneInputState();
 }
 
-class AppTextField extends StatefulWidget {
-  const AppTextField({
-    this.controller,
-    this.focusNode,
-    this.keyboardType,
-    this.autofocus = false,
-    this.suffix,
-    this.hintText,
-    this.inputFormatters,
-    this.textInputAction,
-    this.expands = false,
-    this.errorText,
-    this.autofillHints,
-    this.maxLines,
-    this.minLines,
-    this.onFieldSubmitted,
-    this.onChanged,
-    this.textStyle,
-    this.hintTextStyle,
-    super.key,
-  });
-
-  final TextEditingController? controller;
-  final FocusNode? focusNode;
-  final String? errorText;
-  final Widget? suffix;
-  final bool autofocus;
-  final String? hintText;
-  final TextStyle? hintTextStyle;
-  final List<TextInputFormatter>? inputFormatters;
-  final TextInputType? keyboardType;
-  final TextInputAction? textInputAction;
-  final bool expands;
-  final Iterable<String>? autofillHints;
-  final ValueChanged<String>? onFieldSubmitted;
-  final ValueChanged<String>? onChanged;
-  final int? maxLines;
-  final int? minLines;
-  final TextStyle? textStyle;
-
-  @override
-  State<AppTextField> createState() => _AppTextFieldState();
-}
-
-class _AppTextFieldState extends State<AppTextField> {
+class _RegistrationPhoneInputState extends State<RegistrationPhoneInput> {
   late final FocusNode _textFieldFocusNode;
 
   @override
   void initState() {
     super.initState();
-    _textFieldFocusNode = widget.focusNode ?? FocusNode();
+    _textFieldFocusNode = widget.focusNode;
   }
 
   @override
@@ -107,20 +45,33 @@ class _AppTextFieldState extends State<AppTextField> {
         listenable: _textFieldFocusNode,
         builder: (context, _) {
           return TextFormField(
-            autofocus: widget.autofocus,
+            autofocus: widget.isAutofocus,
             controller: widget.controller,
-            focusNode: _textFieldFocusNode,
-            maxLines: widget.maxLines,
-            minLines: widget.minLines,
-            keyboardType: widget.keyboardType,
+            maxLines: 1,
+            keyboardType: TextInputType.number,
             textInputAction: TextInputAction.done,
-            autofillHints: widget.autofillHints,
-            expands: widget.expands,
-            onFieldSubmitted: widget.onFieldSubmitted,
-            onChanged: widget.onChanged,
-            inputFormatters: widget.inputFormatters,
+            autofillHints: const [AutofillHints.telephoneNumber],
+            focusNode: _textFieldFocusNode,
+            onTapOutside: (event) {
+              _textFieldFocusNode.unfocus();
+            },
+            inputFormatters: [
+              FilteringTextInputFormatter.allow(RegExp('[0-9+]')),
+              LengthLimitingTextInputFormatter(20),
+              // _PhoneNumberInputFormatter(countryCode: countryInfo.isoCode),
+            ],
             decoration: InputDecoration(
-              
+              border: OutlineInputBorder(
+                // borderSide: BorderSide(color: Colors.black),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(12.0),
+                ),
+              ),
+              errorText: widget.errorText,
+              hintText: 'RegistrationScreen_Redesign_PhoneNumber',
+              fillColor: RegistrationScreenTheme.of(context)
+                  .phoneNumberSectionBackgroundColor,
+              filled: true,
             ),
           );
         });

@@ -11,16 +11,32 @@ class AuthScreenTheme extends ThemeExtension<AuthScreenTheme> {
   final Up4DateColorTheme _colorTheme;
   final Up4DateTextTheme _textTheme;
 
-  TextStyle get linkedHavingTroubleLoginTextStyle => _textTheme.labelSmall.copyWith(
+  TextStyle get linkedPrivacyPolicyTextStyle => _textTheme.labelSmall.copyWith(
         color: Up4DateColorsPalette.purple,
+        fontWeight: FontWeight.w500,
       );
 
-  TextStyle get havingTroubleLoginTextStyle => _textTheme.labelSmall.copyWith(
+  double get defaultSpace => 16.0;
+  double get bigSpace => 20.0;
+
+  TextStyle get privacyPolicyTextStyle => _textTheme.labelSmall.copyWith(
         color: Up4DateColorsPalette.white,
       );
+
+  TextStyle get havingTroubleLoginTextStyle => _textTheme.bodyMedium.copyWith(
+        color: Up4DateColorsPalette.purple,
+        fontWeight: FontWeight.w700,
+      );
+
   ButtonStyle get buttonStyle => ButtonStyle(
         backgroundColor: _colorTheme.primary,
       );
+
+  EdgeInsets get contentPadding => EdgeInsets.symmetric(
+        horizontal: 16.0,
+      );
+
+  EdgeInsets get logoPadding => EdgeInsets.only(top: 20.0);
 
   @override
   int get hashCode => Object.hash(

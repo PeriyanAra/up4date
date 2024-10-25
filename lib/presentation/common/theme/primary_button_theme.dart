@@ -20,6 +20,9 @@ class PrimaryButtonTheme extends ThemeExtension<PrimaryButtonTheme> {
               : Up4DateColorsPalette.gray50);
 
   ButtonStyle get buttonStyle => ButtonStyle(
+        padding: WidgetStatePropertyAll(
+          EdgeInsets.symmetric(vertical: 12.0),
+        ),
         backgroundColor: _colorTheme.primary,
       );
 
