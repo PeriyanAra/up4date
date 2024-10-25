@@ -28,13 +28,29 @@ class VerificationScreen extends StatelessWidget {
   }
 }
 
-class _VerificationScreenContent extends StatelessWidget {
+class _VerificationScreenContent extends StatefulWidget {
   const _VerificationScreenContent({
     Key? key,
     required this.phoneNumber,
   }) : super(key: key);
 
   final String phoneNumber;
+
+  @override
+  State<_VerificationScreenContent> createState() =>
+      _VerificationScreenContentState();
+}
+
+class _VerificationScreenContentState
+    extends State<_VerificationScreenContent> {
+  late final OverlayLoaderHelper _loader;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _loader = OverlayLoaderHelper();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,50 +60,58 @@ class _VerificationScreenContent extends StatelessWidget {
       appBar: Up4DateAppBar(),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text.rich(
-              TextSpan(
-                children: [
-                  TextSpan(
-                    text: 'verification_title'.tr() + '\n',
-                    style: verificationScreenTheme.titleTextStyle,
-                  ),
-                  TextSpan(
-                    text: 'send_code_again'.tr(),
-                    style: verificationScreenTheme.linkedSubtitleTextStyle,
-                  ),
-                  TextSpan(
-                    text: 'to_phone_number'.tr(args: [phoneNumber]),
-                    style: verificationScreenTheme.subtitleTextStyle,
-                  ),
-                ],
+        child: BlocListener<VerificationBloc, VerificationState>(
+          listener: (context, state) {
+            state.maybeMap(
+              loading: (value) => _loader.show(context),
+              orElse: () => _loader.hide(),
+            );
+          },
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text.rich(
+                TextSpan(
+                  children: [
+                    TextSpan(
+                      text: 'verification_title'.tr() + '\n',
+                      style: verificationScreenTheme.titleTextStyle,
+                    ),
+                    TextSpan(
+                      text: 'send_code_again'.tr(),
+                      style: verificationScreenTheme.linkedSubtitleTextStyle,
+                    ),
+                    TextSpan(
+                      text: 'to_phone_number'.tr(args: [widget.phoneNumber]),
+                      style: verificationScreenTheme.subtitleTextStyle,
+                    ),
+                  ],
+                ),
               ),
-            ),
-            SizedBox(
-              height: 24.0,
-            ),
-            BlocBuilder<VerificationBloc, VerificationState>(
-              builder: (context, state) {
-                final isErrorState = state is VerificationErrorState;
+              SizedBox(
+                height: 24.0,
+              ),
+              BlocBuilder<VerificationBloc, VerificationState>(
+                builder: (context, state) {
+                  final isErrorState = state is VerificationErrorState;
 
-                return VerificationCodeInput(
-                  onCodeSubmitted: (vaue) {},
-                  error: (
-                    hasError: isErrorState,
-                    textError: isErrorState ? state.error.toString() : null,
-                  ),
-                );
-              },
-            ),
-            PrimaryButton(
-              text: 'dafa',
-              onTap: () => context.router.replaceAll(
-                [PageRouteInfo('authenticated')],
+                  return VerificationCodeInput(
+                    onCodeSubmitted: (vaue) {},
+                    error: (
+                      hasError: isErrorState,
+                      textError: isErrorState ? state.error.toString() : null,
+                    ),
+                  );
+                },
               ),
-            ),
-          ],
+              PrimaryButton(
+                text: 'dafa',
+                onTap: () => context.router.replaceAll(
+                  [PageRouteInfo('authenticated')],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
