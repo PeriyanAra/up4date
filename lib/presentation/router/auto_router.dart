@@ -6,11 +6,29 @@ class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
         AutoRoute(
-          initial: true,
-          page: AuthRoute.page,
+          page: EmptyShellRoute('authenticated'),
+          path: '/authenticated',
+          children: [
+            AutoRoute(
+              initial: true,
+              page: HomeRoute.page,
+              path: 'home',
+            ),
+          ],
         ),
         AutoRoute(
-          page: RegistrationRoute.page,
+          initial: true,
+          page: EmptyShellRoute('unauthenticated'),
+          path: '/unauthenticated',
+          children: [
+            AutoRoute(
+              initial: true,
+              page: AuthRoute.page,
+            ),
+            AutoRoute(
+              page: RegistrationRoute.page,
+            ),
+          ],
         ),
         AutoRoute(
           page: VerificationRoute.page,

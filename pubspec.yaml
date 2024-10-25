@@ -16,8 +16,8 @@ dependencies:
   flutter_svg: ^2.0.9
   freezed_annotation: ^2.4.4
   get_it: ^8.0.1
-  intl_phone_number_input: ^0.7.4
   pinput: ^5.0.0
+  mask_text_input_formatter: ^2.9.0
   provider: ^6.0.5
   shared_preferences: ^2.2.0
 

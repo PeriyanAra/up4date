@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:up4date/core/di/index.dart';
 import 'package:up4date/presentation/common/index.dart';
 import 'package:up4date/presentation/verification/bloc/verification_bloc.dart';
+import 'package:up4date/presentation/verification/theme/index.dart';
 import 'package:up4date/presentation/verification/widgets/verification_code_input.dart';
 
 @RoutePage()
@@ -79,7 +80,13 @@ class _VerificationScreenContent extends StatelessWidget {
                   ),
                 );
               },
-            )
+            ),
+            PrimaryButton(
+              text: 'dafa',
+              onTap: () => context.router.replaceAll(
+                [PageRouteInfo('authenticated')],
+              ),
+            ),
           ],
         ),
       ),

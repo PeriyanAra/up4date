@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pinput/pinput.dart';
 import 'package:up4date/presentation/common/index.dart';
 import 'package:up4date/presentation/verification/bloc/verification_bloc.dart';
+import 'package:up4date/presentation/verification/theme/index.dart';
 
 class VerificationCodeInput extends StatefulWidget {
   const VerificationCodeInput({

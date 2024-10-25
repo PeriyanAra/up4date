@@ -24,10 +24,36 @@ class RegistrationScreenTheme extends ThemeExtension<RegistrationScreenTheme> {
         color: _colorTheme.secondary,
       );
 
-  EdgeInsets get countryPickerPadding =>
-      const EdgeInsets.fromLTRB(12, 10, 14, 10);
+  Color get inputFillColor => Up4DateColorsPalette.black50;
 
-  Color get phoneNumberSectionBackgroundColor => Up4DateColorsPalette.black50;
+  BoxDecoration get phoneNumberSectionDecoration => BoxDecoration(
+        color: Up4DateColorsPalette.black50,
+        borderRadius: BorderRadius.circular(12.0),
+      );
+
+  EdgeInsets get countryPickerPadding =>
+      const EdgeInsets.fromLTRB(12.0, 10.0, 14.0, 10.0);
+
+  EdgeInsets get phoneInputContentPadding =>
+      const EdgeInsets.only(top: 10.0, left: 12.0);
+      
+  EdgeInsets get screenContentPadding => EdgeInsets.symmetric(horizontal: 16.0);
+
+  double get continueButtonBottomSpace => 26.0;
+
+  double get phoneInputLeftSpace => 8.0;
+
+  double get phoneNumberSectionTopSpace => 24.0;
+
+  InputBorder get phoneInputBorder => OutlineInputBorder(
+        borderSide: BorderSide.none,
+        borderRadius: BorderRadius.all(
+          Radius.circular(12.0),
+        ),
+      );
+
+  BorderRadius get phoneNumberCountryFlagBorderRadius =>
+      BorderRadius.circular(2.57);
 
   @override
   int get hashCode => Object.hash(
