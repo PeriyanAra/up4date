@@ -11,30 +11,7 @@ class Up4DateTheme {
       colorTheme: colorTheme,
       textTheme: appTextTheme,
     );
-
-    return ThemeData(
-      useMaterial3: true,
-      colorScheme: ColorScheme.fromSeed(
-        seedColor: colorTheme.primary,
-      ),
-      applyElevationOverlayColor: false,
-      splashFactory: NoSplash.splashFactory,
-      highlightColor: Colors.transparent,
-      scaffoldBackgroundColor: colorTheme.backgroundPrimary,
-      extensions: <ThemeExtension<dynamic>>[
-        colorTheme,
-        appBarTheme,
-        appTextTheme,
-        registrationScreenTheme,
-      ],
-    );
-  }
-
-  static ThemeData dark() {
-    final colorTheme = _darkColorTheme();
-    final appTextTheme = Up4DateTextTheme(colorTheme: colorTheme);
-    final appBarTheme = Up4DateAppBarTheme(colorTheme: colorTheme);
-    final registrationScreenTheme = RegistrationScreenTheme(
+    final primaryButtonTheme = PrimaryButtonTheme(
       colorTheme: colorTheme,
       textTheme: appTextTheme,
     );
@@ -53,6 +30,39 @@ class Up4DateTheme {
         appBarTheme,
         appTextTheme,
         registrationScreenTheme,
+        primaryButtonTheme,
+      ],
+    );
+  }
+
+  static ThemeData dark() {
+    final colorTheme = _darkColorTheme();
+    final appTextTheme = Up4DateTextTheme(colorTheme: colorTheme);
+    final appBarTheme = Up4DateAppBarTheme(colorTheme: colorTheme);
+    final registrationScreenTheme = RegistrationScreenTheme(
+      colorTheme: colorTheme,
+      textTheme: appTextTheme,
+    );
+    final primaryButtonTheme = PrimaryButtonTheme(
+      colorTheme: colorTheme,
+      textTheme: appTextTheme,
+    );
+
+    return ThemeData(
+      useMaterial3: true,
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: colorTheme.primary,
+      ),
+      applyElevationOverlayColor: false,
+      splashFactory: NoSplash.splashFactory,
+      highlightColor: Colors.transparent,
+      scaffoldBackgroundColor: colorTheme.backgroundPrimary,
+      extensions: <ThemeExtension<dynamic>>[
+        colorTheme,
+        appBarTheme,
+        appTextTheme,
+        registrationScreenTheme,
+        primaryButtonTheme,
       ],
     );
   }
@@ -62,6 +72,7 @@ class Up4DateTheme {
       brightness: Brightness.light,
       primary: Up4DateColor(
         Up4DateColorsPalette.yellowAcidic.value,
+        disabled: Up4DateColorsPalette.gray,
       ),
       secondary: Up4DateColor(
         Up4DateColorsPalette.white.value,
@@ -80,6 +91,7 @@ class Up4DateTheme {
       brightness: Brightness.dark,
       primary: Up4DateColor(
         Up4DateColorsPalette.yellowAcidic.value,
+        disabled: Up4DateColorsPalette.gray,
       ),
       secondary: Up4DateColor(
         Up4DateColorsPalette.white.value,

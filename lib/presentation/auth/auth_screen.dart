@@ -22,14 +22,20 @@ class _AuthScreenContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Image.asset(Assets.appLogo),
-          PrimaryButton(
-            text: 'agsdhasgdkjasd',
-            onTap: () {},
-          )
-        ],
+      body: Container(
+        child: Column(
+          children: [
+            Image.asset(Assets.appLogo),
+            PrimaryButton(
+              text: 'Создать профиль',
+              onTap: () {},
+            ),
+            SecondaryButton(
+              text: 'Войти',
+              onTap: () {},
+            ),
+          ],
+        ),
       ),
     );
   }
