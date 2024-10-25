@@ -7,5 +7,5 @@ class Assets {
 
   static const appLogo = '$images/app_logo.png';
 
-
+  static const authBackgroundImage = '$images/auth_background_image.png';
 }

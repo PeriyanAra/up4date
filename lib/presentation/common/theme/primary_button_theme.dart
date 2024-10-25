@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:up4date/presentation/theme/index.dart';
 
-class RegistrationScreenTheme extends ThemeExtension<RegistrationScreenTheme> {
-  const RegistrationScreenTheme({
+class PrimaryButtonTheme extends ThemeExtension<PrimaryButtonTheme> {
+  const PrimaryButtonTheme({
     required Up4DateColorTheme colorTheme,
     required Up4DateTextTheme textTheme,
   })  : _colorTheme = colorTheme,
@@ -11,15 +11,17 @@ class RegistrationScreenTheme extends ThemeExtension<RegistrationScreenTheme> {
   final Up4DateColorTheme _colorTheme;
   final Up4DateTextTheme _textTheme;
 
-  TextStyle get subtitleTextStyle => _textTheme.bodyMedium.copyWith(
-        color: Up4DateColorsPalette.gray,
-      );
+  TextStyle adaptiveTextStyle({
+    required bool isEnable,
+  }) =>
+      _textTheme.bodyLarge.copyWith(
+          color: isEnable
+              ? Up4DateColorsPalette.black
+              : Up4DateColorsPalette.gray50);
 
-  TextStyle get titleTextStyle => _textTheme.headlineLarge.copyWith(
-        color: Up4DateColorsPalette.white,
+  ButtonStyle get buttonStyle => ButtonStyle(
+        backgroundColor: _colorTheme.primary,
       );
-
-  Color get phoneNumberSectionBackgroundColor => Up4DateColorsPalette.black50;
 
   @override
   int get hashCode => Object.hash(
@@ -30,30 +32,30 @@ class RegistrationScreenTheme extends ThemeExtension<RegistrationScreenTheme> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is RegistrationScreenTheme &&
+      other is PrimaryButtonTheme &&
           runtimeType == other.runtimeType &&
           _colorTheme == other._colorTheme;
 
   @override
-  ThemeExtension<RegistrationScreenTheme> copyWith({
+  ThemeExtension<PrimaryButtonTheme> copyWith({
     Up4DateColorTheme? colorTheme,
     Up4DateTextTheme? textTheme,
   }) {
-    return RegistrationScreenTheme(
+    return PrimaryButtonTheme(
       colorTheme: colorTheme ?? _colorTheme,
       textTheme: textTheme ?? _textTheme,
     );
   }
 
   @override
-  ThemeExtension<RegistrationScreenTheme> lerp(
-    covariant ThemeExtension<RegistrationScreenTheme>? other,
+  ThemeExtension<PrimaryButtonTheme> lerp(
+    covariant ThemeExtension<PrimaryButtonTheme>? other,
     double t,
   ) {
     return this;
   }
 
-  static RegistrationScreenTheme of(BuildContext context) {
-    return Theme.of(context).extension<RegistrationScreenTheme>()!;
+  static PrimaryButtonTheme of(BuildContext context) {
+    return Theme.of(context).extension<PrimaryButtonTheme>()!;
   }
 }

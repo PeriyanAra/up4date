@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:up4date/presentation/theme/index.dart';
 
-class PrimaryButtonTheme extends ThemeExtension<PrimaryButtonTheme> {
-  const PrimaryButtonTheme({
+class AuthScreenTheme extends ThemeExtension<AuthScreenTheme> {
+  const AuthScreenTheme({
     required Up4DateColorTheme colorTheme,
     required Up4DateTextTheme textTheme,
   })  : _colorTheme = colorTheme,
@@ -11,57 +11,50 @@ class PrimaryButtonTheme extends ThemeExtension<PrimaryButtonTheme> {
   final Up4DateColorTheme _colorTheme;
   final Up4DateTextTheme _textTheme;
 
-  // TextStyle get textStyle => _textTheme.bodyLarge;
-
-  ButtonStyle get buttonStyle => ButtonStyle(
-        backgroundColor: _colorTheme.primary,
-        textStyle: WidgetStateTextStyle.resolveWith(
-          (state) {
-            if (state == WidgetState.disabled) {
-              return _textTheme.bodyLarge.copyWith(
-                color: Up4DateColorsPalette.gray50,
-              );
-            }
-
-            return _textTheme.bodyLarge;
-          },
-        ),
+  TextStyle get linkedHavingTroubleLoginTextStyle => _textTheme.labelSmall.copyWith(
+        color: Up4DateColorsPalette.purple,
       );
 
-      
+  TextStyle get havingTroubleLoginTextStyle => _textTheme.labelSmall.copyWith(
+        color: Up4DateColorsPalette.white,
+      );
+  ButtonStyle get buttonStyle => ButtonStyle(
+        backgroundColor: _colorTheme.primary,
+      );
+
   @override
   int get hashCode => Object.hash(
         _colorTheme,
-        this,
+        _textTheme,
       );
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is PrimaryButtonTheme &&
+      other is AuthScreenTheme &&
           runtimeType == other.runtimeType &&
           _colorTheme == other._colorTheme;
 
   @override
-  ThemeExtension<PrimaryButtonTheme> copyWith({
+  ThemeExtension<AuthScreenTheme> copyWith({
     Up4DateColorTheme? colorTheme,
     Up4DateTextTheme? textTheme,
   }) {
-    return PrimaryButtonTheme(
+    return AuthScreenTheme(
       colorTheme: colorTheme ?? _colorTheme,
       textTheme: textTheme ?? _textTheme,
     );
   }
 
   @override
-  ThemeExtension<PrimaryButtonTheme> lerp(
-    covariant ThemeExtension<PrimaryButtonTheme>? other,
+  ThemeExtension<AuthScreenTheme> lerp(
+    covariant ThemeExtension<AuthScreenTheme>? other,
     double t,
   ) {
     return this;
   }
 
-  static PrimaryButtonTheme of(BuildContext context) {
-    return Theme.of(context).extension<PrimaryButtonTheme>()!;
+  static AuthScreenTheme of(BuildContext context) {
+    return Theme.of(context).extension<AuthScreenTheme>()!;
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:up4date/presentation/auth/theme/index.dart';
 import 'package:up4date/presentation/common/index.dart';
 import 'package:up4date/presentation/theme/index.dart';
 
@@ -15,6 +16,14 @@ class Up4DateTheme {
       colorTheme: colorTheme,
       textTheme: appTextTheme,
     );
+    final secondaryButtonTheme = SecondaryButtonTheme(
+      colorTheme: colorTheme,
+      textTheme: appTextTheme,
+    );
+    final authScreenTheme = AuthScreenTheme(
+      colorTheme: colorTheme,
+      textTheme: appTextTheme,
+    );
 
     return ThemeData(
       useMaterial3: true,
@@ -31,6 +40,8 @@ class Up4DateTheme {
         appTextTheme,
         registrationScreenTheme,
         primaryButtonTheme,
+        secondaryButtonTheme,
+        authScreenTheme,
       ],
     );
   }
@@ -47,6 +58,14 @@ class Up4DateTheme {
       colorTheme: colorTheme,
       textTheme: appTextTheme,
     );
+    final secondaryButtonTheme = SecondaryButtonTheme(
+      colorTheme: colorTheme,
+      textTheme: appTextTheme,
+    );
+    final authScreenTheme = AuthScreenTheme(
+      colorTheme: colorTheme,
+      textTheme: appTextTheme,
+    );
 
     return ThemeData(
       useMaterial3: true,
@@ -63,6 +82,8 @@ class Up4DateTheme {
         appTextTheme,
         registrationScreenTheme,
         primaryButtonTheme,
+        secondaryButtonTheme,
+        authScreenTheme,
       ],
     );
   }
