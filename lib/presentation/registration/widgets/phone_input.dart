@@ -8,7 +8,6 @@ class PhoneInput extends StatelessWidget {
     required this.focusNode,
     required this.isAutofocus,
     this.errorText,
-    this.prefix,
     this.suffix,
     super.key,
   });
@@ -17,7 +16,6 @@ class PhoneInput extends StatelessWidget {
   // final CountryInfo countryInfo;
   final FocusNode focusNode;
   final String? errorText;
-  final Widget? prefix;
   final Widget? suffix;
   final bool isAutofocus;
 
@@ -35,7 +33,6 @@ class PhoneInput extends StatelessWidget {
       textInputAction: TextInputAction.done,
       autofillHints: const [AutofillHints.telephoneNumber],
       hintText: 'RegistrationScreen_Redesign_PhoneNumber',
-      prefix: prefix,
       inputFormatters: [
         FilteringTextInputFormatter.allow(RegExp('[0-9+]')),
         LengthLimitingTextInputFormatter(maxPhoneNumberLength),
@@ -51,7 +48,6 @@ class AppTextField extends StatefulWidget {
     this.focusNode,
     this.keyboardType,
     this.autofocus = false,
-    this.prefix,
     this.suffix,
     this.hintText,
     this.inputFormatters,
@@ -71,7 +67,6 @@ class AppTextField extends StatefulWidget {
   final TextEditingController? controller;
   final FocusNode? focusNode;
   final String? errorText;
-  final Widget? prefix;
   final Widget? suffix;
   final bool autofocus;
   final String? hintText;
@@ -125,7 +120,7 @@ class _AppTextFieldState extends State<AppTextField> {
             onChanged: widget.onChanged,
             inputFormatters: widget.inputFormatters,
             decoration: InputDecoration(
-              prefix: widget.prefix,
+              
             ),
           );
         });

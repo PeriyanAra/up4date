@@ -19,6 +19,14 @@ class RegistrationScreenTheme extends ThemeExtension<RegistrationScreenTheme> {
         color: Up4DateColorsPalette.white,
       );
 
+  TextStyle get phoneNumberSectionTextStyle =>
+      _textTheme.headlineSmall.copyWith(
+        color: Up4DateColorsPalette.white,
+      );
+
+  EdgeInsets get countryPickerPadding =>
+      const EdgeInsets.fromLTRB(12, 10, 14, 10);
+
   Color get phoneNumberSectionBackgroundColor => Up4DateColorsPalette.black50;
 
   @override
