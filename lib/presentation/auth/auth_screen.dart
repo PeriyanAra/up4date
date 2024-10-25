@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:up4date/presentation/common/index.dart';
+import 'package:up4date/presentation/common/widgets/primary_button.dart';
 
 @RoutePage()
 class AuthScreen extends StatelessWidget {
@@ -20,8 +21,16 @@ class _AuthScreenContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body:Center(
-      child: Text('data'),
-    ));
+    return Scaffold(
+      body: Column(
+        children: [
+          Image.asset(Assets.appLogo),
+          PrimaryButton(
+            text: 'agsdhasgdkjasd',
+            onTap: () {},
+          )
+        ],
+      ),
+    );
   }
 }

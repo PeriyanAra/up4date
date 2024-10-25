@@ -10,12 +10,7 @@ class Up4DateColorTheme extends ThemeExtension<Up4DateColorTheme> {
     required this.primary,
     required this.secondary,
     required this.tertiary,
-    required this.foregroundPrimary,
-    required this.foregroundSecondary,
-    required this.foregroundTertiary,
     required this.backgroundPrimary,
-    required this.backgroundSecondary,
-    required this.backgroundTertiary,
   });
 
   final Brightness brightness;
@@ -24,25 +19,14 @@ class Up4DateColorTheme extends ThemeExtension<Up4DateColorTheme> {
   final Up4DateColor secondary;
   final Up4DateColor tertiary;
 
-  final Up4DateColor foregroundPrimary;
-  final Up4DateColor foregroundSecondary;
-  final Up4DateColor foregroundTertiary;
-
   final Up4DateColor backgroundPrimary;
-  final Up4DateColor backgroundSecondary;
-  final Up4DateColor backgroundTertiary;
 
   @override
   int get hashCode => Object.hash(
         primary,
         secondary,
         tertiary,
-        foregroundPrimary,
-        foregroundSecondary,
-        foregroundTertiary,
         backgroundPrimary,
-        backgroundSecondary,
-        backgroundTertiary,
       );
 
   @override
@@ -53,12 +37,7 @@ class Up4DateColorTheme extends ThemeExtension<Up4DateColorTheme> {
           primary == other.primary &&
           secondary == other.secondary &&
           tertiary == other.tertiary &&
-          foregroundPrimary == other.foregroundPrimary &&
-          foregroundSecondary == other.foregroundSecondary &&
-          foregroundTertiary == other.foregroundTertiary &&
-          backgroundPrimary == other.backgroundPrimary &&
-          backgroundSecondary == other.backgroundSecondary &&
-          backgroundTertiary == other.backgroundTertiary;
+          backgroundPrimary == other.backgroundPrimary;
 
   @override
   Up4DateColorTheme copyWith({
@@ -70,12 +49,7 @@ class Up4DateColorTheme extends ThemeExtension<Up4DateColorTheme> {
       primary: primary ?? this.primary,
       secondary: secondary ?? this.secondary,
       tertiary: tertiary,
-      foregroundPrimary: foregroundPrimary,
-      foregroundSecondary: foregroundSecondary,
-      foregroundTertiary: foregroundTertiary,
       backgroundPrimary: backgroundPrimary,
-      backgroundSecondary: backgroundSecondary,
-      backgroundTertiary: backgroundTertiary,
     );
   }
 
@@ -93,14 +67,7 @@ class Up4DateColorTheme extends ThemeExtension<Up4DateColorTheme> {
       primary: primary.lerp(other.primary, t),
       secondary: secondary.lerp(other.secondary, t),
       tertiary: tertiary.lerp(other.tertiary, t),
-      foregroundPrimary: foregroundPrimary.lerp(other.foregroundPrimary, t),
-      foregroundSecondary:
-          foregroundSecondary.lerp(other.foregroundSecondary, t),
-      foregroundTertiary: foregroundTertiary.lerp(other.foregroundTertiary, t),
       backgroundPrimary: backgroundPrimary.lerp(other.backgroundPrimary, t),
-      backgroundSecondary:
-          backgroundSecondary.lerp(other.backgroundSecondary, t),
-      backgroundTertiary: backgroundTertiary.lerp(other.backgroundTertiary, t),
     );
   }
 
