@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:up4date/domain/domain.dart';
+import 'package:up4date/domain/index.dart';
 
 class AppThemeModeSettings {
   AppThemeModeSettings._(this._appKeyValueStorage);

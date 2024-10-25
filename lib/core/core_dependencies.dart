@@ -1,6 +1,5 @@
-import 'package:up4date/core/core.dart';
-import 'package:up4date/core/di/dependencies.dart';
-import 'package:up4date/core/di/di.dart';
+import 'package:up4date/core/di/index.dart';
+import 'package:up4date/core/index.dart';
 
 final class CoreDependencies extends Dependencies {
   @override

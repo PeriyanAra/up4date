@@ -1,8 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:up4date/presentation/common/constants/assets.dart';
+import 'package:up4date/presentation/common/index.dart';
 import 'package:up4date/presentation/common/widgets/primary_button.dart';
-import 'package:up4date/presentation/common/widgets/up4date_app_bar.dart';
 
 @RoutePage()
 class AuthScreen extends StatelessWidget {

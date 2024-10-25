@@ -1,5 +1,5 @@
-import 'package:up4date/core/core.dart';
-import 'package:up4date/domain/domain.dart';
+import 'package:up4date/core/index.dart';
+import 'package:up4date/domain/index.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class DeviceAppKeyValueStorage implements AppKeyValueStorage {

@@ -5,9 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:up4date/app/app_theme_mode/app_theme_mode.dart';
 import 'package:up4date/app/app_theme_mode/app_theme_mode_settings.dart';
 import 'package:up4date/app/restart_widget.dart';
-import 'package:up4date/core/di/di_get_it_implementation.dart';
-import 'package:up4date/core/di/register_app_dependencies.dart';
 import 'package:provider/provider.dart';
+import 'package:up4date/core/di/index.dart';
 
 Future<void> mainShared(
   Widget appProvider,

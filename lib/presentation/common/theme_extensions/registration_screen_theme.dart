@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:up4date/presentation/theme/up4date_text_theme.dart';
-import 'package:up4date/presentation/theme/up4date_color_theme.dart';
-import 'package:up4date/presentation/theme/up4date_colors_palette.dart';
+import 'package:up4date/presentation/theme/index.dart';
 
 class RegistrationScreenTheme extends ThemeExtension<RegistrationScreenTheme> {
   const RegistrationScreenTheme({

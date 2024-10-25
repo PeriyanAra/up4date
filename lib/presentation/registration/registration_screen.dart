@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:up4date/presentation/common/theme_extensions/index.dart';
-import 'package:up4date/presentation/common/widgets/up4date_app_bar.dart';
+import 'package:up4date/presentation/common/index.dart';
 
 @RoutePage()
 class RegistrationScreen extends StatelessWidget {
