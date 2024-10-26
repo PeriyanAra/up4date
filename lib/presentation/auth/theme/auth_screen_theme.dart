@@ -32,8 +32,13 @@ class AuthScreenTheme extends ThemeExtension<AuthScreenTheme> {
         backgroundColor: _colorTheme.primary,
       );
 
-  EdgeInsets get contentPadding => EdgeInsets.symmetric(
-        horizontal: 16.0,
+Color get asd =>Up4DateColorsPalette.black;
+
+
+  EdgeInsets contentPadding(BuildContext context) => EdgeInsets.only(
+        right: 16.0,
+        left: 16.0,
+        bottom: MediaQuery.of(context).padding.bottom + 10.0,
       );
 
   EdgeInsets get logoPadding => EdgeInsets.only(top: 20.0);
