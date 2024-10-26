@@ -11,7 +11,13 @@ class Up4DateAppBarTheme extends ThemeExtension<Up4DateAppBarTheme> {
   double get leadingWidth => 48.0;
   double get appBarHeight => 70.0;
   Color get backgroundColor => _colorTheme.backgroundPrimary;
+
   EdgeInsets get leadingPadding => const EdgeInsets.only(left: 16.0);
+
+  BoxDecoration get backButtonDecoration => BoxDecoration(
+        color: _colorTheme.backgroundSecondary,
+        shape: BoxShape.circle,
+      );
 
   @override
   int get hashCode => Object.hash(

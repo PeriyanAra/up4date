@@ -5,13 +5,13 @@ import 'package:up4date/presentation/common/index.dart';
 class Up4DateAppBar extends StatelessWidget implements PreferredSizeWidget {
   const Up4DateAppBar({
     super.key,
-    this.actions,
     this.title = '',
+    this.isBackButtonShown = true,
     this.onBackButtonTap,
   });
 
   final String title;
-  final List<Widget>? actions;
+  final bool isBackButtonShown;
   final VoidCallback? onBackButtonTap;
 
   @override
@@ -20,17 +20,22 @@ class Up4DateAppBar extends StatelessWidget implements PreferredSizeWidget {
 
     return AppBar(
       title: Text(title),
-      actions: actions,
-      leading: GestureDetector(
-        behavior: HitTestBehavior.opaque,
-        onTap: onBackButtonTap,
-        child: Padding(
-          padding: up4dateAppBarTheme.leadingPadding,
-          child: SvgPicture.asset(
-            Assets.backButton,
-          ),
-        ),
-      ),
+      leading: isBackButtonShown
+          ? Padding(
+              padding: up4dateAppBarTheme.leadingPadding,
+              child: GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: onBackButtonTap,
+                child: Container(
+                  decoration: up4dateAppBarTheme.backButtonDecoration,
+                  alignment: Alignment.center,
+                  child: SvgPicture.asset(
+                    AppIcons.backIcon,
+                  ),
+                ),
+              ),
+            )
+          : null,
       leadingWidth: up4dateAppBarTheme.leadingWidth,
       backgroundColor: up4dateAppBarTheme.backgroundColor,
     );

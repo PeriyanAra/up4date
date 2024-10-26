@@ -1,5 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:up4date/app/app_theme_mode/index.dart';
 import 'package:up4date/core/di/di_get_it_implementation.dart';
 import 'package:up4date/presentation/router/auto_router.dart';
 import 'package:up4date/presentation/theme/index.dart';
@@ -17,11 +19,13 @@ class _Up4DateAppState extends State<Up4DateApp> {
     return MaterialApp.router(
       title: 'Up4Date',
       darkTheme: Up4DateTheme.dark(),
-      themeMode: ThemeMode.dark,
+      theme: Up4DateTheme.light(),
+      themeMode: context.watch<AppThemeMode>().themeMode,
       routerConfig: di<AppRouter>().config(),
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
+      debugShowCheckedModeBanner: false,
     );
   }
 }

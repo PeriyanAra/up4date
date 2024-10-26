@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -73,10 +71,6 @@ class _VerificationScreenContentState
         ),
         body: BlocListener<VerificationBloc, VerificationState>(
           listener: (context, state) {
-            log(
-              state.toString(),
-              name: 'state',
-            );
             state.maybeMap(
               loading: (value) => _loader.show(context),
               loaded: (_) =>

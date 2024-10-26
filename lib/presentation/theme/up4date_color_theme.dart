@@ -11,6 +11,7 @@ class Up4DateColorTheme extends ThemeExtension<Up4DateColorTheme> {
     required this.secondary,
     required this.tertiary,
     required this.backgroundPrimary,
+    required this.backgroundSecondary,
   });
 
   final Brightness brightness;
@@ -20,6 +21,7 @@ class Up4DateColorTheme extends ThemeExtension<Up4DateColorTheme> {
   final Up4DateColor tertiary;
 
   final Up4DateColor backgroundPrimary;
+  final Up4DateColor backgroundSecondary;
 
   @override
   int get hashCode => Object.hash(
@@ -37,6 +39,7 @@ class Up4DateColorTheme extends ThemeExtension<Up4DateColorTheme> {
           primary == other.primary &&
           secondary == other.secondary &&
           tertiary == other.tertiary &&
+          backgroundSecondary == other.backgroundSecondary &&
           backgroundPrimary == other.backgroundPrimary;
 
   @override
@@ -50,6 +53,7 @@ class Up4DateColorTheme extends ThemeExtension<Up4DateColorTheme> {
       secondary: secondary ?? this.secondary,
       tertiary: tertiary,
       backgroundPrimary: backgroundPrimary,
+      backgroundSecondary: backgroundSecondary,
     );
   }
 
@@ -68,6 +72,8 @@ class Up4DateColorTheme extends ThemeExtension<Up4DateColorTheme> {
       secondary: secondary.lerp(other.secondary, t),
       tertiary: tertiary.lerp(other.tertiary, t),
       backgroundPrimary: backgroundPrimary.lerp(other.backgroundPrimary, t),
+      backgroundSecondary:
+          backgroundSecondary.lerp(other.backgroundSecondary, t),
     );
   }
 

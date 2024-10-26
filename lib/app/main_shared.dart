@@ -4,6 +4,8 @@ import 'dart:developer' as dev;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+import 'package:up4date/app/app_theme_mode/index.dart';
 import 'package:up4date/app/restart_widget.dart';
 import 'package:up4date/core/di/index.dart';
 
@@ -29,16 +31,25 @@ Future<void> mainShared(
       final di = DiGetItImplementation();
       await registerAppDependencies(di);
 
+      final _appThemeModeSettings = di<AppThemeModeSettings>();
+
       runApp(
         RestartWidget(
-          child: EasyLocalization(
-            supportedLocales: const [
-              Locale('ru'),
-            ],
-            path: 'assets/translations',
-            fallbackLocale: const Locale('ru'),
-            startLocale: Locale('ru'),
-            child: appProvider,
+          child: ChangeNotifierProvider.value(
+            value: AppThemeMode(
+              appThemeModeSettings: _appThemeModeSettings,
+              themeMode: _appThemeModeSettings.themeMode,
+            ),
+            child: EasyLocalization(
+              supportedLocales: [
+                Locale('ru'),
+                Locale('en'),
+              ],
+              path: 'assets/translations',
+              fallbackLocale: Locale('ru'),
+              startLocale: Locale('ru'),
+              child: appProvider,
+            ),
           ),
           onBeforeRestart: () async {
             await di.reset();

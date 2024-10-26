@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:up4date/presentation/theme/index.dart';
 
-class OverlayLoaderHelperTheme extends ThemeExtension<OverlayLoaderHelperTheme> {
+class OverlayLoaderHelperTheme
+    extends ThemeExtension<OverlayLoaderHelperTheme> {
   const OverlayLoaderHelperTheme({
     required Up4DateColorTheme colorTheme,
   }) : _colorTheme = colorTheme;
 
   final Up4DateColorTheme _colorTheme;
 
-  Color get backgroundColor => _colorTheme.primary.withOpacity(0.4);
+  Color get backgroundColor => _colorTheme.backgroundSecondary.withOpacity(0.4);
   Color get loaderColor => _colorTheme.primary;
-
 
   @override
   int get hashCode => Object.hash(

@@ -15,5 +15,10 @@
     "auth_screen_cookie_text": "Cookie",
     "auth_screen_privacy_policy_text": "политикой конфиденциальности",
     "welcome_text": "Добро пожаловать",
-    "validation_error": "Код не совподает с отправленным"
+    "validation_error": "Код не совподает с отправленным",
+    "logout": "Выход из системы",
+    "app_theme": "Тема",
+    "select_language": "Выберите язык",
+    "language": "Язык"
+
 }

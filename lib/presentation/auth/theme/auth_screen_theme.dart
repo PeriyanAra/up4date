@@ -20,11 +20,11 @@ class AuthScreenTheme extends ThemeExtension<AuthScreenTheme> {
   double get bigSpace => 20.0;
 
   TextStyle get privacyPolicyTextStyle => _textTheme.labelSmall.copyWith(
-        color: _colorTheme.secondary,
+        color: Up4DateColorsPalette.white,
       );
 
   TextStyle get havingTroubleLoginTextStyle => _textTheme.bodyMedium.copyWith(
-        color: _colorTheme.tertiary,
+        color: Up4DateColorsPalette.purple,
         fontWeight: FontWeight.w700,
       );
 

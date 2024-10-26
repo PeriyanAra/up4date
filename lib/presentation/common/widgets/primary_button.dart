@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:up4date/app/app_theme_mode/index.dart';
 import 'package:up4date/presentation/common/index.dart';
 
 class PrimaryButton extends StatelessWidget {
@@ -18,7 +20,10 @@ class PrimaryButton extends StatelessWidget {
       onPressed: onTap,
       child: Text(
         text,
-        style: primaryButtonTheme.adaptiveTextStyle(isEnable: onTap != null),
+        style: primaryButtonTheme.adaptiveTextStyle(
+          isEnable: onTap != null,
+          themeMode: context.watch<AppThemeMode>().themeMode,
+        ),
       ),
       style: primaryButtonTheme.buttonStyle,
     );

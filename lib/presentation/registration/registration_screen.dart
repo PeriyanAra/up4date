@@ -66,7 +66,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   height: registrationScreenTheme.phoneNumberSectionTopSpace,
                 ),
                 SizedBox(
-                  height: 46.0,
+                  height: registrationScreenTheme.phoneNumberSectionHeight,
                   child: Row(
                     children: [
                       CountrySelector(

@@ -10,5 +10,6 @@ Up4DateColorTheme createColorTheme(Up4DateColor color) {
     primary: color,
     secondary: color,
     tertiary: color,
+    backgroundSecondary: color,
   );
 }

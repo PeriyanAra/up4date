@@ -40,7 +40,7 @@ class VerificationScreenTheme extends ThemeExtension<VerificationScreenTheme> {
         height: 48.0,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12.0),
-          color: Up4DateColorsPalette.black50,
+          color: _colorTheme.backgroundSecondary,
         ),
       );
 
@@ -66,7 +66,7 @@ class VerificationScreenTheme extends ThemeExtension<VerificationScreenTheme> {
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12.0),
-          color: Up4DateColorsPalette.black50,
+          color: _colorTheme.backgroundSecondary,
         ),
       );
 

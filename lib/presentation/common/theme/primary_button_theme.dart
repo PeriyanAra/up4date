@@ -13,11 +13,15 @@ class PrimaryButtonTheme extends ThemeExtension<PrimaryButtonTheme> {
 
   TextStyle adaptiveTextStyle({
     required bool isEnable,
+    required ThemeMode themeMode,
   }) =>
       _textTheme.bodyLarge.copyWith(
-          color: isEnable
-              ? Up4DateColorsPalette.black
-              : Up4DateColorsPalette.gray50);
+        color: isEnable
+            ? Up4DateColorsPalette.black
+            : themeMode == ThemeMode.light
+                ? Up4DateColorsPalette.gray
+                : Up4DateColorsPalette.gray50,
+      );
 
   ButtonStyle get buttonStyle => ButtonStyle(
         padding: WidgetStatePropertyAll(

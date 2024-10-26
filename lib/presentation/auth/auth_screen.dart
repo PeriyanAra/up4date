@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:up4date/app/app_theme_mode/index.dart';
 import 'package:up4date/presentation/auth/theme/index.dart';
 import 'package:up4date/presentation/common/index.dart';
 import 'package:up4date/presentation/router/auto_router.gr.dart';
@@ -19,19 +21,21 @@ class AuthScreen extends StatelessWidget {
           image: DecorationImage(
             fit: BoxFit.cover,
             image: AssetImage(
-              Assets.authBackgroundImage,
+              context.watch<AppThemeMode>().themeMode == ThemeMode.dark
+                  ? AppImages.authDarkBackgroundImage
+                  : AppImages.authLightBackgroundImage,
             ),
           ),
         ),
         padding: authScreenTheme.contentPadding,
         child: SafeArea(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Padding(
-                padding: authScreenTheme.logoPadding,
-                child: Image.asset(Assets.appLogo),
-              ),
+              // Padding(
+              //   padding: authScreenTheme.logoPadding,
+              //   child: Image.asset(AppImages.appLogo),
+              // ),
               Column(
                 children: [
                   SizedBox(
@@ -48,7 +52,9 @@ class AuthScreen extends StatelessWidget {
                     width: double.infinity,
                     child: SecondaryButton(
                       text: 'login'.tr(),
-                      onTap: () {},
+                      onTap: () => context.router.push(
+                        RegistrationRoute(),
+                      ),
                     ),
                   ),
                   HBox(height: authScreenTheme.bigSpace),

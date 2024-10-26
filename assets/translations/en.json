@@ -1,0 +1,23 @@
+{
+    "registration_title": "Enter your phone number",
+    "registration_subtitle": "We will send a confirmation code to this number",
+    "verification_title": "Enter the code from the SMS",
+    "send_code_again": "Send code again",
+    "to_phone_number": "to phone number {}",
+    "continue_text": "Continue",
+    "login": "Log in",
+    "create_profile": "Create profile",
+    "having_trouble_logging_in": "Having trouble logging in?",
+    "auth_screen_privacy_policy_description_part_1": "By clicking 'Log in,' you agree to the ",
+    "auth_screen_privacy_policy_description_part_2": " of the service. You can also review how we use ",
+    "auth_screen_privacy_policy_description_part_3": " and our ",
+    "auth_screen_mode_of_use_text": "terms of use",
+    "auth_screen_cookie_text": "Cookies",
+    "auth_screen_privacy_policy_text": "privacy policy",
+    "welcome_text": "Welcome",
+    "validation_error": "The code does not match the one sent",
+    "logout": "Log out",
+    "app_theme": "Theme",
+    "select_language": "Select language",
+    "language": "Language"
+}

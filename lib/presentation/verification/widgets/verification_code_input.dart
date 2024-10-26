@@ -109,7 +109,7 @@ class _VerificationCodeInputState extends State<VerificationCodeInput> {
       cursor: Container(
         alignment: Alignment.center,
         child: SvgPicture.asset(
-          Assets.cursore,
+          AppIcons.cursor,
           colorFilter: ColorFilter.mode(
             _hasError
                 ? verificationScreenTheme.errorCursoreColor
